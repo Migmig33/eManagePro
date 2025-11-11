@@ -1,23 +1,29 @@
 <?php
-//session_start();
-//if (!isset($_SESSION["id"])){
- //   header("Location: login.php");
-//}
-
-include'../db/db_connect_emanagepro.php';
-$transaction_id = intval($_GET['transaction_id'] ?? 0);
-if ($transaction_id <= 0) {
-    echo"invalid id";
+session_start();
+if (!isset($_SESSION["id"])){
+  header("Location: ../login.php");
 }
 
-$stmt = $conn->prepare('DELETE FROM transactions WHERE transaction_id = ?');
+include'../db/db_connect_emanagepro.php';
+$transaction_id = intval($_GET['id'] ?? 0);
+if ($transaction_id <= 0) {
+    echo"<script>alert('ERROR FINDING ID');
+        window.location.href='../homepage.php'</script>";
+    exit;
+}
+
+$stmt = $conn->prepare("DELETE FROM transactions WHERE transaction_id = ?");
 $stmt->bind_param("i", $transaction_id);
 
 if($stmt->execute() == true){
-    echo"deleted transac";
+    echo"<script>alert('Transaction Successfully deleted');
+        window.location.href='../homepage.php'</script>";
+    exit;
 } else{
-    echo"did not deleted";
+    echo"<script>alert('Error on deleting tansaction');
+        window.location.href='../homepage.php'</script>";
+    exit;
 }
 $stmt->close();
-$conn->close()
+$conn->close();
 ?>

@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/usersignup.css">
     <title>Signup</title>
 </head>
 <body>
-    <div class="container">
-      
+    <div class="title">
+        <p>eManagePro</p>
+    </div>
+
+    <div class="container">  
         <h1>Sign Up</h1>
         <form method="POST" action="auth/createAdmin.php">
         <label for="username">UserName:</label>

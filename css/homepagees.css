@@ -1,0 +1,451 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    color: white;
+    margin: 0 60px;
+
+}
+
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width:  100vw;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1500;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+}
+#overlay.hidden{
+    opacity: 1;
+    visibility: visible;
+
+}
+.account{
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 25%;
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    color: rgb(0, 0, 0);
+    flex: 1 1 100px;
+    min-width: 180px;
+    transition: 0.3s ease-in-out;
+
+}
+.account.showAccount{
+    left: 0;
+}
+
+.accounttitle{
+    position: relative;
+    margin: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid white;
+}
+.useraccount{
+    position: relative;
+    margin: 20px;
+    top: 10px;
+    font-size: 18px;
+    display: flex;
+    gap: 5px;
+}
+.useraccount i{
+    margin-top: 20.5px;
+    font-size: 12px;
+}
+.logout{
+    position: relative;
+    top: 10;
+    margin: 20px;
+    cursor: pointer;
+    
+}
+.logout a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+}
+.exitaccountview{
+    position: relative;
+    cursor: pointer;
+    margin: 20px;
+}
+@media(max-width: 480px){
+    .useraccount{
+        font-size: 10px;
+
+    }
+    .useraccount i{
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    .logout{
+        font-size: 10px;
+    }
+    .logout a{
+        font-size: 10px;
+        margin-top: 10px;
+    }
+}
+/* form add transaction */
+
+.displayaddtransac {
+    position: fixed;
+    left: 50%;
+    top: -200px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 28px;
+    transition: 0.5s ease-in-out;
+
+
+}
+
+.displayaddtransac.show {
+    top: 50%;
+
+}
+
+.displayaddtransac p {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+
+/* form add operation */
+.displayaddoperate {
+    position: fixed;
+    left: 50%;
+    top: -200px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 28px;
+    transition: 0.5s ease-in-out;
+    z-index: 20;
+
+
+}
+
+.displayaddoperate.show {
+    top: 50%;
+
+}
+
+.displayaddoperate p {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+
+
+/*update form*/
+
+.displayupdateform {
+    position: fixed;
+    left: 50%;
+    top: -400px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 28px;
+    transition: 0.5s ease-in-out;
+
+
+}
+
+.displayupdateform.showupdate {
+    top: 50%;
+
+}
+
+.displayupdateform p {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+/* display form add item */
+.displayadditem {
+    position: fixed;
+    left: 50%;
+    top: -300px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 28px;
+    transition: 0.5s ease-in-out;
+
+
+}
+
+.displayadditem.showadditemform {
+    top: 50%;
+
+}
+
+.displayadditem p {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+
+
+
+input {
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    border: 1px solid white;
+    border-radius: 29px;
+}
+
+select {
+    padding: 10px;
+}
+
+
+.headerbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+.title {
+    position: relative;
+    left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.title:hover {
+    color: black;
+}
+
+
+@media(max-width: 480px) {
+    .title{
+        font-size: 10px;
+    }
+
+}
+
+.profile {
+    position: relative;
+    right: 25px;
+    font-size: 10px;
+    background-color: 2px solid transparent;
+    background-color: black;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+
+
+}
+
+.section-header {
+    margin-top: 100px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        font-size: 16px;
+    }
+}
+
+.dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.dashboard-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 400px;
+}
+
+.operation-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+
+.operation-status {
+    background-color: rgb(0, 0, 0);
+    padding: 35px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    box-shadow: -10px 10px 10px rgb(79, 73, 73);
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.status-selections p {
+    transition: 0.5s ease;
+
+}
+
+.status-selections p:hover {
+    color: #a6a6a6;
+}
+
+.status-container {
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    margin-bottom: 12px;
+}
+
+
+.inventory-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.status-selections {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .dashboard-summary {
+        flex-direction: column;
+    }
+
+    .dashboard-summary,
+    .table-dashboard {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+}
+
+.dashboard-box {
+    flex: 1 1 150px;
+    background-color: black;
+    border-radius: 16px;
+    text-align: center;
+
+}
+
+.table-dashboard {
+    flex: 1 1 500px;
+    background-color: black;
+    border-radius: 16px;
+    height: 400px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.table-operation {
+    flex: 1 1 500px;
+    background-color: black;
+    border-radius: 16px;
+    height: 300px;
+    overflow-x: auto;
+    padding: 10px;
+}
+.table-inventory {
+    flex: 1 1 500px;
+    background-color: black;
+    border-radius: 16px;
+    height: 300px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+
+
+@media(max-width: 480px) {
+    .title_table {
+        font-size: 18px;
+    }
+}
+
+table {
+    border: 5px solid rgb(255, 255, 255);
+    background-color: rgb(255, 253, 253);
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    overflow: hidden;
+
+}
+
+th,
+tr,
+td {
+    gap: 5px;
+    background: rgb(205, 204, 204)
+}
+
+.delete-btn {
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+}
+.update-btn {
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+
