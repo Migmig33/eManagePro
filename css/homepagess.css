@@ -183,6 +183,29 @@ body {
 
 }
 
+/* DISPLAY UPDATE FORM FOR INVENTORY */
+.displayupdateitemform{
+    position: fixed;
+    left: 50%;
+    top:-500px;
+    transform: translate(-50%, -50%);
+    width: 300%;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 28px;
+    transition: 0.5s ease-in-out;
+}
+.displayupdateitemform.showupdate {
+    top: 50%;
+
+}
+
+.displayupdateitemform p {
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
 /* display form add item */
 .displayadditem {
     position: fixed;

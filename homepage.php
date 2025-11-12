@@ -16,6 +16,7 @@ include 'db/db_connect_emanagepro.php';
 $item_id = intval($_GET['item_id'] ?? 0);
 if($item_id <= 0){
     $item_updates = [
+        'item_id' => '',
         'item_name' => '',
         'price' => '',
         'stock' => ''
@@ -85,7 +86,7 @@ $result_inventory = $conn->query($sql_inventory);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/homepagees.css">
+    <link rel="stylesheet" href="css/homepagess.css">
     <title>Homepage</title>
 </head>
 
