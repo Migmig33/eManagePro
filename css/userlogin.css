@@ -1,8 +1,8 @@
-*{
-    font-family: sans-serif;
-}
+
 body{
     background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    font-family: -apple-system, BlinkMacSystemFont, "Segeo UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 .title{
@@ -30,6 +30,7 @@ body{
 .container h1{
     display: flex;
     justify-content: center;
+    font-weight: 300;
 }
 .container p{
     display: flex;
@@ -39,12 +40,14 @@ form{
     display: flex;
     flex-direction: column;
 }
+label{
+    margin-bottom: 5px;
+}
 input[type="text"]{
     padding: 5px;
     border-radius: 14px;
-    box-shadow: -5px 5px 1px rgb(66, 63, 63);
-    border: 1px solid transparent;
-    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    border: 1px solid white;
+    background: linear-gradient(145deg, #1a1a1a, #222);
 
 }
 input[type="text"]:active{
@@ -54,13 +57,14 @@ input[type="submit"]{
     margin: 0 auto;
     padding: 10px;
     border-radius: 28px;
-    border: solid transparent;
-    box-shadow: -5px 5px 1px rgb(66, 63, 63);
+    border: 1px solid white;
     transition: 0.5s ease;
     width: 80px;
-    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    transition: 0.5s ease-out;
 }
 input[type="submit"]:hover{
     background-color: #a6a6a6;
     color: black;
+    transform: scale(1.1);
 }

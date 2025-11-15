@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/userlogin.css">
+    <link rel="stylesheet" href="css/userlogins.css">
     <title>Signup</title>
 </head>
 <body>
@@ -15,9 +15,9 @@
 
 
     <div class="container">
-        <h1>Log In</h1>
+        <h1>Sign In</h1>
         <form method="POST" action="auth/checkLogin.php">
-        <label for="username">UserName:</label>
+        <label for="username">Username:</label>
         <input type="text" name="username" id="username" required><br><br>
 
         <label for="password">Password:</label>
@@ -27,7 +27,7 @@
         <input type="submit" value="Log In">
 
     </form>
-    <p><a href="index.php">Don't have an account?</a></p>
+    <p><a href="index.php">Forget Password?</a></p>
     </div>
  
     

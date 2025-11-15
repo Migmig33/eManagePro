@@ -10,7 +10,6 @@ body {
 }
 
 #overlay{
-    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
@@ -24,81 +23,7 @@ body {
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
 }
-#overlay.hidden{
-    opacity: 1;
-    visibility: visible;
 
-}
-.account{
-    position: fixed;
-    z-index: 2000;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 25%;
-    background: linear-gradient(90deg, #a6a6a6, #ffffff);
-    color: rgb(0, 0, 0);
-    flex: 1 1 100px;
-    min-width: 180px;
-    transition: 0.3s ease-in-out;
-
-}
-.account.showAccount{
-    left: 0;
-}
-
-.accounttitle{
-    position: relative;
-    margin: 20px;
-    font-size: 18px;
-    border-bottom: 1px solid white;
-}
-.useraccount{
-    position: relative;
-    margin: 20px;
-    top: 10px;
-    font-size: 18px;
-    display: flex;
-    gap: 5px;
-}
-.useraccount i{
-    margin-top: 20.5px;
-    font-size: 12px;
-}
-.logout{
-    position: relative;
-    top: 10;
-    margin: 20px;
-    cursor: pointer;
-    
-}
-.logout a{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 12px;
-}
-.exitaccountview{
-    position: relative;
-    cursor: pointer;
-    margin: 20px;
-}
-@media(max-width: 480px){
-    .useraccount{
-        font-size: 10px;
-
-    }
-    .useraccount i{
-        font-size: 10px;
-        margin-top: 10px;
-    }
-    .logout{
-        font-size: 10px;
-    }
-    .logout a{
-        font-size: 10px;
-        margin-top: 10px;
-    }
-}
 /* form add transaction */
 
 .displayaddtransac {
@@ -126,111 +51,6 @@ body {
 
 }
 
-
-/* form add operation */
-.displayaddoperate {
-    position: fixed;
-    left: 50%;
-    top: -200px;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    background-color: rgb(0, 0, 0);
-    padding: 30px;
-    border-radius: 28px;
-    transition: 0.5s ease-in-out;
-    z-index: 20;
-
-
-}
-
-.displayaddoperate.show {
-    top: 50%;
-
-}
-
-.displayaddoperate p {
-    font-size: 18px;
-    font-weight: 600;
-
-}
-
-
-
-/*update form*/
-
-.displayupdateform {
-    position: fixed;
-    left: 50%;
-    top: -400px;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    background-color: rgb(0, 0, 0);
-    padding: 30px;
-    border-radius: 28px;
-    transition: 0.5s ease-in-out;
-
-
-}
-
-.displayupdateform.showupdate {
-    top: 50%;
-
-}
-
-.displayupdateform p {
-    font-size: 18px;
-    font-weight: 600;
-
-}
-
-/* DISPLAY UPDATE FORM FOR INVENTORY */
-.displayupdateitemform{
-    position: fixed;
-    left: 50%;
-    top:-500px;
-    transform: translate(-50%, -50%);
-    width: 300%;
-    padding: 30px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 28px;
-    transition: 0.5s ease-in-out;
-}
-.displayupdateitemform.showupdate {
-    top: 50%;
-
-}
-
-.displayupdateitemform p {
-    font-size: 18px;
-    font-weight: 600;
-
-}
-
-/* display form add item */
-.displayadditem {
-    position: fixed;
-    left: 50%;
-    top: -300px;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    background-color: rgb(0, 0, 0);
-    padding: 30px;
-    border-radius: 28px;
-    transition: 0.5s ease-in-out;
-
-
-}
-
-.displayadditem.showadditemform {
-    top: 50%;
-
-}
-
-.displayadditem p {
-    font-size: 18px;
-    font-weight: 600;
-
-}
 
 
 

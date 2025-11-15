@@ -1,20 +1,3 @@
-// function view account or logout
-const openAcc = document.getElementById("openaccount");
-const accountView = document.querySelector(".account");
-const exitAcc = document.getElementById("exitaccount");
-const overlays = document.getElementById("overlay")
-
-openAcc.addEventListener('click', () => {
-    overlays.classList.toggle("hidden");
-    accountView.classList.toggle('showAccount');
-
-});
-
-exitAcc.addEventListener('click', () =>{
-    accountView.classList.remove('showAccount');
-    overlays.classList.toggle("hidden");
-
-});
 
 // function add transaction
 const addtransac = document.getElementById("addTransac");
