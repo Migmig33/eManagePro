@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         exit;
     } else{
         echo"<script>alert('Error on adding transaction to the table. Please try again.');
-        window.location.href='../homepage.php';
+        window.location.href='../dashboard.php';
         </script>";
         exit;
     }

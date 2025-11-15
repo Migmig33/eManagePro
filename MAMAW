@@ -3,23 +3,7 @@
     <section>
         <p class="section-header">Operations</p>
 
-        <div class="operation-status">
-            <p style="margin-left: 22px;">Ongoing Operations</p>
-            <div class="status-selections">
-                <p id="alloperation">All</p>
-                <p id="complete">Completed</p>
-                <p id="ongoing">Pending</p>
-            </div>
-            <div id="mainstatuscontainer">
-                <div id="status-container">
-                    <p id="operation_name"></p>
-                    <p id="isactive"></p>
-                </div>
-            </div>
-
-
-        </div>
-
+       
 
         <div class="table-operation" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
             <p style="font-weight: 500; margin: 20px 50px;" class="title_table">Operations<span id="addOperate"><i
@@ -212,3 +196,46 @@
         </div>
 
     </section>
+
+
+
+
+
+
+     <div class="table-dashboard" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
+            <p style="font-weight: 500; margin: 20px 50px;" class="title_table">Recent Transaction<span
+                    id="addTransac"><i class="fa-solid fa-plus"
+                        style="margin-left:4px; border: 1px solid white; border-radius: 50%; padding: 1px; font-size: 15px"></i></span>
+            </p>
+            <?php if ($result_transactions && $result_transactions->num_rows > 0): ?>
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Transaction Name</th>
+                        <th>Transaction By</th>
+                        <th>Item ID</th>
+                        <th>Quantity</th>
+                        <th>Delete</th>
+
+                    </tr>
+                    <?php while ($row = $result_transactions->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['transaction_id']) ?></td>
+                            <td><?php echo htmlspecialchars($row['transaction_name']) ?></td>
+                            <td><?php echo htmlspecialchars($row['transactioned_by']) ?></td>
+                            <td><?php echo htmlspecialchars($row['quantity']) ?></td>
+                            <td><?php echo htmlspecialchars($row['item_id']) ?></td>
+                            <td>
+                                <a class="delete-btn" href="func/deletetransac.php?id=<?php echo $row['transaction_id']; ?>"
+                                    onclick="return confirm('Are you sure u want to delete this transaction');">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </table>
+            <?php else: ?>
+                <p style="text-align: center; justify-content: center;">No Transaction History</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+

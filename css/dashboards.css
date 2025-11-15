@@ -102,7 +102,7 @@ select {
 
 }
 .title p{
-    font-size: 28px;
+    font-size: clamp(12px, 2vw, 20px);
 }
 .pages{
     flex-direction: column;
@@ -146,7 +146,7 @@ select {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    width: 400px;
+    width: 100%;
 }
 
 .dashboard-box {
@@ -156,7 +156,12 @@ select {
     text-align: center;
 
 }
-
+.icons-total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .table-dashboard {
     flex: 1 1 500px;
     background-color: black;
@@ -205,6 +210,39 @@ td {
 }
 
 
+.operation-status {
+    background-color: rgb(0, 0, 0);
+    padding: 35px;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    box-shadow: -10px 10px 10px rgb(79, 73, 73);
+    overflow-y: auto;
+}
+
+.status-selections p {
+    transition: 0.5s ease;
+    cursor: pointer;
+
+}
+
+.status-selections p:hover {
+    color: #a6a6a6;
+}
+
+.status-container {
+    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    margin-bottom: 12px;
+}
+
+
 
 @media (max-width: 480px) {
     .dashboard-header {
@@ -212,7 +250,7 @@ td {
     }
 
     .section-header{
-        margin-left: 0s;
+        margin-left: 0;
     }
     .dashboard-content{
         margin-left: 0;
