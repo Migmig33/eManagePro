@@ -86,7 +86,7 @@ $result_inventory = $conn->query($sql_inventory);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboards.css">
     <title>Homepage</title>
 </head>
 
@@ -96,15 +96,44 @@ $result_inventory = $conn->query($sql_inventory);
 
 
     <div class="headerbar">
-        <div class="title">
+        <div class="menu">
             <p>☰</p>
-        </div>
-
-        <div class="profile" id="openaccount">
-            <i class="fa-solid fa-user"></i>
         </div>
     </div>
 
+    
+        <div class="sidebar">
+            <div class="title"><p>eManagePro</p></div>
+            <div class="pages">
+                <div class="option" href="#">
+                    <i class="fa-solid fa-chart-area"></i>
+                    <p>DashBoard</p>
+                </div>
+                <div class="option" href="#">
+                    <i class="fa-solid fa-receipt"></i>
+                    <p>Transaction</p>
+                </div>
+                <div class="option" href="#">
+                    <i class="fa-solid fa-list-check"></i>
+                    <p>Operations</p>
+                </div>
+                <div class="option" href="#">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <p>Report</p>
+                </div>
+                 <div class="option" href="#">
+                    <i class="fa-solid fa-warehouse"></i>
+                    <p>Inventory</p>
+                </div>
+                 <div class="option" href="#">
+                    <i class="fa-solid fa-door-open"></i>
+                    <p>Sign Out</p>
+                </div>
+
+            </div>
+        </div>
+
+    
    
 
     <p class="section-header">DashBoard</p>
