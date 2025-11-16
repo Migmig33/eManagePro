@@ -17,21 +17,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if($transaction_name =='' || $quantity < 1 || $item_id < 1){
         echo"<script>alert('Invalid Input, Please Try Again.');
-        window.location.href='../homepage.php';
+        window.location.href='../transaction.php';
         </script>";
         exit;
     }
-    $stmt = $conn->prepare("INSERT INTO transactions (transaction_name,item_id, quantity,  transactioned_by) VALUES (?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO transactions (transaction_name, item_id, quantity,  transactioned_by) VALUES (?,?,?,?)");
     $stmt -> bind_param("siis", $transaction_name, $item_id, $quantity, $transactioned_by);
 
     if($stmt->execute()){
         echo"<script>alert('Transaction Succesfully added to the table.');
-        window.location.href='../homepage.php';
+        window.location.href='../transaction.php';
         </script>";
         exit;
     } else{
         echo"<script>alert('Error on adding transaction to the table. Please try again.');
-        window.location.href='../dashboard.php';
+        window.location.href='../transaction.php';
         </script>";
         exit;
     }

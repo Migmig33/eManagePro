@@ -2,7 +2,7 @@
 const numofTransac = document.getElementById("numtransaction");
 const numofOperation = document.getElementById("numoperation");
 const numofItem = document.getElementById("numitems");
-fetch('apifunc/getData.php')
+fetch('apifunc/getDatarows.php')
     .then(res => res.json())
     .then(result =>{
         numofTransac.textContent = result.total.transactions;

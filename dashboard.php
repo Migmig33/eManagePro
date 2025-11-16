@@ -87,7 +87,7 @@ $result_inventory = $conn->query($sql_inventory);
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/dashboard.css">
-    <title>Homepage</title>
+    <title>eManagePro</title>
 </head>
 
 <body>
@@ -145,26 +145,43 @@ $result_inventory = $conn->query($sql_inventory);
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
                 <p>Total Transaction</p>
                 <div class="icons-total">
-                    <i class="fa-solid fa-receipt"></i>
-                    <h1 id="numtransaction"></h1>
-
+                      <i class="fa-solid fa-receipt"></i>
+                      <h1 id="numtransaction">0</h1>
                 </div>
             </div>
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
                 <p>Pending Operations</p>
-                <h1 id="numactiveoperation"></h1>
+                <div class="icons-total">
+                      <i class="fa-solid fa-truck-moving"></i>
+                      <h1 id="numtransaction">0</h1>
+                </div>                     
             </div>
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
                 <p>Completed Operations</p>
-                <h1 id="numcompletedoperation"></h1>
+                <div class="icons-total">
+                      <i class="fa-solid fa-check"></i>
+                      <h1 id="numtransaction">0</h1>
+                </div>       
             </div>
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
                 <p>Total Items</p>
-                <h1 id="numitems"></h1>
+                <div class="icons-total">
+                      <i class="fa-solid fa-box"></i>
+                      <h1 id="numitems">0</h1>
+                </div>     
             </div>
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
                 <p>Total Value</p>
-                <h1 id="totalvalue"></h1>
+               <div class="icons-total">
+                      <i class="fa-solid fa-dollar-sign"></i>
+                      <h1 id="numtransaction">0</h1>
+                </div>       
+            </div>
+            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+                <p>Total Operations</p>
+               <div class="icons-total">
+                      <h1 id="numoperation">0</h1>
+                </div>       
             </div>
 
         </div>
@@ -217,7 +234,7 @@ $result_inventory = $conn->query($sql_inventory);
 
 
     <script src="js/dashboard.js"></script>
-    <script src="apifunc/callData.js"></script>
+    <script src="apifunc/getDatarows.js"></script>
     <script src="apifunc/callStatus.js"></script>
 
 

@@ -81,7 +81,8 @@ select {
 }
 
 .menu:hover {
-    color: black;
+    color: rgb(67, 67, 67);
+
 }
 
 .sidebar{
