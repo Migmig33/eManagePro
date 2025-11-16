@@ -1,6 +1,6 @@
 
 body{
-    background: linear-gradient(90deg, #a6a6a6, #ffffff);
+    background: linear-gradient(90deg, #8f8c8c, #1a1a1a);
     font-family: -apple-system, BlinkMacSystemFont, "Segeo UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
@@ -47,7 +47,7 @@ input[type="text"]{
     padding: 5px;
     border-radius: 14px;
     border: 1px solid white;
-    background: linear-gradient(145deg, #1a1a1a, #222);
+    background: linear-gradient(90deg, #898888, #222);
 
 }
 input[type="text"]:active{
@@ -60,7 +60,7 @@ input[type="submit"]{
     border: 1px solid white;
     transition: 0.5s ease;
     width: 80px;
-    background: linear-gradient(145deg, #1a1a1a, #222);
+    background: linear-gradient(90deg, #898888, #222);
     transition: 0.5s ease-out;
 }
 input[type="submit"]:hover{
