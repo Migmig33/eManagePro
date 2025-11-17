@@ -92,21 +92,6 @@ $result_transactions = $conn->query($sql_transactions);
            </div>
         </div>
 
-           <div id="formUpdateTransac" class="formUpdate">
-            <div class="formTitle"><p>Update Transaction</p></div>
-            <form method="POST" action="func/updatetransac.php">
-                <input type="hidden" name="transaction_id" id="transaction_id">
-                <label for="transaction_name">Transaction Name:</label>
-                <input type="text" name="transaction_name" id="transaction_name" required>
-                <label for="item_id">Item ID:</label>
-                <input type="text" name="item_id" id="item_id">
-                <label for="quantity">Quantity:</label>
-                <input type="text" name="quantity" id="quantity">
-
-                <input type="submit" value="Update Item">
-            </form>
-        </div>
-
         </div>
         </div>
 

@@ -23,16 +23,36 @@ window.addEventListener("load", function(){
     loadArchivedTransac();
 });
 
-document.querySelectorAll('.update-btn').forEach(btn => {
-    btn.addEventListener('click', function(e){
-        e.preventDefault();
+document.querySelectorAll(".update-btn").forEach(btn =>{
+    btn.addEventListener("click", function() {
+        let row = this.closest("tr");
 
-        document.getElementById('data-id').value = this.dataset.id;
-        document.getElementById('data-name').value = this.dataset.name;
-        document.getElementById('data-by').value = this.dataset.by;
-        document.getElementById('data-item').value = this.dataset.item;
-        document.getElementById('data-num').value = this.dataset.qnty;
+        row.querySelectorAll(".viewSpan").forEach(el => el.style.display = "none");
+        row.querySelectorAll(".editInput").forEach(el => el.style.display = "inline-block");
 
-        document.getElementById('formUpdateTransac').style.display ='block';
+        style.display = "none";
+        row.querySelectorAll(".saveRowBtn").style.display = "inline-block";
+
+    });
+});
+document.querySelectorAll(".saveRowBtn").forEach(btn =>{
+    btn.addEventListener("click", function(){
+         let row = this.closest("tr");
+         let id = this.dataset.id;
+
+         let input = row.querySelectorAll(".saveRowBtn");
+
+         let data = new FormData();
+         data.append("transaction_id", id);
+         data.append("transaction_name", input[0].value);
+         data.append("transactioned_by", transactioned_by);
+         data.append("item_id", input[1].value);
+         data.append("quantity", input[2].value);
+
+    fetch("func/updatetransac.php", {
+        method: "POST",
+        body: data
+    }).then(() => location.reload());
+
     });
 });
