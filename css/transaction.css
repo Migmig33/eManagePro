@@ -138,6 +138,7 @@ body {
     padding: 4px;
     border-radius: 12px;
 }
+
 form{
     display: flex;
     flex-direction: column;

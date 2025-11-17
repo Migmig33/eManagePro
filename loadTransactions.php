@@ -35,7 +35,13 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                  <td>".htmlspecialchars($row['created_at'])."</td>
                  <td style='text-align: center;'>";
                  if($is_archived == 0){
-                    echo "  <a class='update-btn' style='background-color: yellow;' href='func/archivetransac.php?id={$row['transaction_id']}'>Edit</a>
+                    echo "  <a class='update-btn' style='background-color: yellow;'
+                            href='#'
+                            data-id = '{$row['transaction_id']}'
+                            data-name='{$row['transaction_name']}'
+                            data-by='{$row['transactioned_by']}'
+                            data-item='{$row['item_id']}'
+                            data-num='{$row['quantity']}'>Edit</a>
                             <a class='archive-btn'style='background-color: green;' href='func/archivetransac.php?id={$row['transaction_id']}'
                             onclick=\"return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');\">Archive</a>";
 

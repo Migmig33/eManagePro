@@ -14,8 +14,25 @@ document.getElementById("toggle-View").addEventListener('click', function(){
     this.textContent = showarchived ? "View Recent" : "View Archived";
     document.getElementById("title-table").textContent = showarchived ? "Archived Transaction" : "Recent Transaction";
     loadArchivedTransac();
+    if(!showarchived){
+
+    }
 });
 
 window.addEventListener("load", function(){
     loadArchivedTransac();
+});
+
+document.querySelectorAll('.update-btn').forEach(btn => {
+    btn.addEventListener('click', function(e){
+        e.preventDefault();
+
+        document.getElementById('data-id').value = this.dataset.id;
+        document.getElementById('data-name').value = this.dataset.name;
+        document.getElementById('data-by').value = this.dataset.by;
+        document.getElementById('data-item').value = this.dataset.item;
+        document.getElementById('data-num').value = this.dataset.qnty;
+
+        document.getElementById('formUpdateTransac').style.display ='block';
+    });
 });
