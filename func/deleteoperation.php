@@ -5,11 +5,6 @@ if(!isset($_SESSION['id'])){
 }
 include'../db/db_connect_emanagepro.php';
 $operation_id = intval($_GET['id'] ?? 0);
-if($operation_id <= 0){
-    echo"<script>alert('ERROR FINDING ID');
-        window.location.href='../homepage.php'</script>";
-    exit;
-}
 $stmt = $conn->prepare("DELETE FROM operations WHERE operation_id = ?");
 $stmt->bind_param("i", $operation_id);
 

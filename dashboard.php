@@ -1,9 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-
     header("Location: login.php");
-    exit;
 }
 $loggeduser = $_SESSION['id'];
 ?>
@@ -157,7 +155,7 @@ $result_inventory = $conn->query($sql_inventory);
                 </div>                     
             </div>
             <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
-                <p>Completed Operations</p>
+                <p>Finished Operations</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-check"></i>
                       <h1 id="numtransaction">0</h1>
