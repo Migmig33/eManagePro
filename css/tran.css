@@ -128,17 +128,9 @@ body {
     font-weight: 500; 
     margin: 20px 50px;
 }
-.archive-btn{
-    background-color: green;
-    padding: 4px;
-    border-radius: 12px;
+.td-actions{
+    width: 2000px;
 }
-.update-btn{
-    background-color: yellow;
-    padding: 4px;
-    border-radius: 12px;
-}
-
 form{
     display: flex;
     flex-direction: column;
@@ -167,6 +159,11 @@ table{
     color: black;
     border-radius: 12px;
 }
+td{
+    max-width: 150px;
+    overflow-x: hidden;
+}
+
 @media (max-width: 480px){
     .transaction-content{
         margin-left: 0;
@@ -191,6 +188,9 @@ table{
     }
     input[type="submit"]{
     width: 40%;
+    }
+    .update-btn{
+        margin-bottom: 20px;
     }
    
 }

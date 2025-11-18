@@ -226,7 +226,11 @@ td {
     box-shadow: -10px 10px 10px rgb(79, 73, 73);
     overflow-y: auto;
 }
-
+.status-selections{
+    display: flex;
+    gap: 10px;
+    
+}
 .status-selections p {
     transition: 0.5s ease;
     cursor: pointer;

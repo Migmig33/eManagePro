@@ -32,14 +32,14 @@ if ($result_transactions && $result_transactions->num_rows > 0){
 
 
                  <span class='viewSpan'>".htmlspecialchars($row['transaction_name'])."</span>
-                 <input class='editInput' type='text' style='display:none;'
+                 <input class='editInput' type='text' style='display: none; width: 90%; padding: 4px;' name='transaction_name'
                         value ='".htmlspecialchars($row['transaction_name'])."'>
                  
                  </td>
                  <td>".htmlspecialchars($row['transactioned_by'])."</td>
                  <td>
                  <span class='viewSpan'>".htmlspecialchars($row['item_id'])."</span>
-                 <input class='editInput' type='text' style='display: none;'
+                 <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='item_id'
                         value='".htmlspecialchars($row['item_id'])."'>
                  
                  </td>
@@ -48,25 +48,24 @@ if ($result_transactions && $result_transactions->num_rows > 0){
 
 
                  <span class='viewSpan'>".htmlspecialchars($row['quantity'])."</span>
-                 <input class='editInput' type='text' style='display: none;'
+                 <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='quantity'
                         value='".htmlspecialchars($row['quantity'])."'>
 
 
                  </td>
 
                  <td>".htmlspecialchars($row['created_at'])."</td>
-                 <td style='text-align: center;'>";
+                 <td style='text-align: center; overflow-x: auto;'>";
                  if($is_archived == 0){
-                    echo "  <a class='update-btn' style='background-color: yellow; cursor: pointer;' data-id='{$row['transaction_id']}'>Edit</a>
-                            <a class='saveRowBtn' style='display: none; background-color: yellow;' data-id='{$row['transaction_id']}'>Save</a>
+                    echo "  <a class='update-btn' style=' cursor: pointer;' data-id='".$row['transaction_id']."'><i class='fa-regular fa-pen-to-square'></i></a>
+                            <a class='saveRowBtn' style='display: none; cursor: pointer;' data-id='".$row['transaction_id']."'><i class='fa-solid fa-check'></i></a>
 
-                            <a class='archive-btn'style='background-color: green;' href='func/archivetransac.php?id={$row['transaction_id']}'
-                            onclick=\"return confirm('Are you sure u want to Archive this transaction. Once you confirmed, the process can\\'t be undone.');\">Archive</a>";
-
+                            <a class='archive-btn' href='func/archivetransac.php?id={$row['transaction_id']}'
+                            onclick=\"return confirm('Are you sure u want to Archive this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-box-archive'></i></a>";
                  }else{
-                    echo "  <a class='archive-btn' style='background-color: green;' href='func/unarchivetransac.php?id={$row['transaction_id']}'>Unarchive</a>
-                            <a class='archive-btn'style='background-color: red;' href='func/deletetransac.php?id={$row['transaction_id']}'
-                            onclick='return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');'>Delete</a>";
+                    echo "  <a class='archive-btn'  href='func/unarchivetransac.php?id={$row['transaction_id']}'><i class='fa-solid fa-box-open'></i></a>
+                            <a class='archive-btn' href='func/deletetransac.php?id={$row['transaction_id']}'
+                            onclick='return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');'><i class='fa-solid fa-trash'></i></a>";
 
                  }
                  
