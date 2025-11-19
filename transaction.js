@@ -3,7 +3,7 @@
 let showarchived = 0;
 // to load the table data from LoadTransaction.php //
 function loadArchivedTransac() {
-    fetch("loadTransactionsss.php?is_archived=" + (showarchived ? 1 : 0))
+    fetch("loadTransaction.php?is_archived=" + (showarchived ? 1 : 0))
     .then(response => response.text())
     .then(data =>{
         document.getElementById("table").innerHTML = data;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
             data.append("item_id", item);
             data.append("quantity", qnty);
 
-            fetch("func/updatetransaction.php", {
+            fetch("func/updatetransactions.php", {
                 method: 'POST',
                 body: data
             })

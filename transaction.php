@@ -97,6 +97,6 @@ $result_transactions = $conn->query($sql_transactions);
 
      
 
-<script src="transactionssss.js"></script>
+<script src="transaction.js"></script>
 </body>
 </html>
