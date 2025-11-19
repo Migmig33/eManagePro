@@ -10,7 +10,7 @@ $is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 1;
 $stmt = $conn->prepare("SELECT transaction_id, transaction_name, transactioned_by, item_id, quantity, created_at
                                FROM transactions
                                WHERE is_archived = ?
-                               ORDER BY transaction_id DESC");
+                               ORDER BY created_at DESC");
 $stmt->bind_param("i", $is_archived);
 $stmt->execute();
 $result_transactions= $stmt->get_result();
@@ -63,9 +63,9 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                             <a class='archive-btn'
                             onclick=\"return confirm('Are you sure u want to Archive this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-box-archive'   data-id='".$row['transaction_id']."'></i></a>";
                  }else{
-                    echo "  <a class='archive-btn'><i class='fa-solid fa-box-open' data-id='".$row['transaction_id']."'></i></a>
-                            <a class='archive-btn'
-                            onclick='return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');'><i class='fa-solid fa-trash'  data-id='".$row['transaction_id']."'></i></a>";
+                    echo "  <a class='unarchive-btn'><i class='fa-solid fa-box-open' data-id='".$row['transaction_id']."'></i></a>
+                            <a class='delete-btn'
+                            onclick=\"return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-trash'  data-id='".$row['transaction_id']."'></i></a>";
 
                  }
                  

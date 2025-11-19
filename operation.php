@@ -45,7 +45,7 @@ $result_transactions = $conn->query($sql_transactions);
                      <i class="fa-solid fa-receipt"></i>
                      <p>Transaction</p>
                 </a>
-                <a class="option" href="operation.php">
+                <a class="option" href="">
                     <i class="fa-solid fa-list-check"></i>
                     <p>Operations</p>
                 </a>
@@ -65,11 +65,11 @@ $result_transactions = $conn->query($sql_transactions);
             </div>
         </div>
 
-        <div class="section-header">Transactions</div>
+        <div class="section-header">Operations</div>
 
         <div class="transaction-content">
             <div class="formContainer">
-                <div class="formTitle"><p>Insert Transaction</p></div>
+                <div class="formTitle"><p>Insert Operation</p></div>
                 <form method="post" id="insertForm">
                     <label for="transaction_name">Transaction Name:</label>
                     <input type="text" name="transaction_name" id="transaction_name" required>
