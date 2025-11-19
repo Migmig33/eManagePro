@@ -10,14 +10,10 @@ $stmt->bind_param("i", $transaction_id);
 
 
 if($stmt->execute() == TRUE){
-    echo "<script>alert('Transaction Successfully Deleted');
-    window.location.href='../transaction.php';</script>";
+    echo json_encode(['success' => true, 'message' => 'Transaction Successfully Delete.']);
     exit;
 }else{
-    echo"<script>alert('Failed to Delete Transaction');
-    window.location.href='../transaction.php';</script>";
-    exit;
-}
+    echo json_encode(['success' => false, 'message' => 'Failed to Delete Transaction.'])
 $stmt->close();
 $conn->close();
 ?>

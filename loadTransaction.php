@@ -63,9 +63,9 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                             <a class='archive-btn'
                             onclick=\"return confirm('Are you sure u want to Archive this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-box-archive'   data-id='".$row['transaction_id']."'></i></a>";
                  }else{
-                    echo "  <a class='archive-btn'  data-id='".$row['transaction_id']."' ><i class='fa-solid fa-box-open'></i></a>
-                            <a class='archive-btn'  data-id='".$row['transaction_id']."'
-                            onclick='return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');'><i class='fa-solid fa-trash'></i></a>";
+                    echo "  <a class='archive-btn'><i class='fa-solid fa-box-open' data-id='".$row['transaction_id']."'></i></a>
+                            <a class='archive-btn'
+                            onclick='return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can't be undone.');'><i class='fa-solid fa-trash'  data-id='".$row['transaction_id']."'></i></a>";
 
                  }
                  

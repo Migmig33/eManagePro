@@ -5,7 +5,7 @@ if (!isset($_SESSION["id"])){
 }
 
 include'../db/db_connect_emanagepro.php';
-$transaction_id = intval($_PUT['transaction_id'] ?? 0);
+$transaction_id = intval($_POST['transaction_id'] ?? 0);
 $stmt = $conn->prepare("UPDATE transactions
                        SET is_archived = 1
                        WHERE transaction_id = ?");
