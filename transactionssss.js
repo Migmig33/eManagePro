@@ -64,6 +64,27 @@ document.addEventListener("DOMContentLoaded", function(){
                 alert(error.message);
             });
         }   
+        if(e.target.classList.contains("fa-box-archive")){
+
+            let id = e.target.dataset.id;
+            let data = new FormData();
+
+            data.append("transaction_id", id);
+            fetch("func/archivetransaction.php", {
+                 method: 'POST',
+                 body: data
+
+            })
+            .then(response => response.json())
+            .then(result =>{
+                alert(result.message);
+                loadArchivedTransac();
+            })
+            .catch(error =>{
+                alert(error.message);
+                loadArchivedTransac();
+            });
+        }
      
     });
 // clicking the add trnsaction button will run inserttransac.php directed to the main page of the html
