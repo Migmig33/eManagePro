@@ -6,7 +6,7 @@ if(!isset($_SESSION['id'])){
 }
 include "db/db_connect_emanagepro.php";
 
-$is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 0;
+$is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 1;
 $stmt = $conn->prepare("SELECT transaction_id, transaction_name, transactioned_by, item_id, quantity, created_at
                                FROM transactions
                                WHERE is_archived = ?
@@ -57,8 +57,8 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                  <td>".htmlspecialchars($row['created_at'])."</td>
                  <td style='text-align: center; overflow-x: auto;'>";
                  if($is_archived == 0){
-                    echo "  <a class='update-btn' style=' cursor: pointer;' data-id='".$row['transaction_id']."'><i class='fa-regular fa-pen-to-square'></i></a>
-                            <a class='saveRowBtn' style='display: none; cursor: pointer;' data-id='".$row['transaction_id']."'><i class='fa-solid fa-check'></i></a>
+                    echo "  <a class='update-btn' style=' cursor: pointer;'><i class='fa-regular fa-pen-to-square' data-id='".$row['transaction_id']."'></i></a>
+                            <a class='saveRowBtn' style='display: none; cursor: pointer;'><i class='fa-solid fa-check' data-id='".$row['transaction_id']."'></i></a>
 
                             <a class='archive-btn'
                             onclick=\"return confirm('Are you sure u want to Archive this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-box-archive'   data-id='".$row['transaction_id']."'></i></a>";
