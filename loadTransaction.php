@@ -7,8 +7,10 @@ if(!isset($_SESSION['id'])){
 include "db/db_connect_emanagepro.php";
 
 $is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 1;
-$stmt = $conn->prepare("SELECT transaction_id, transaction_name, transactioned_by, item_id, quantity, created_at
-                               FROM transactions
+$stmt = $conn->prepare("SELECT t.transaction_id, t.transaction_name, t.item_id, t.quantity, t.created_at, u.givenName
+                               FROM transactions as t
+                               INNER JOIN users as u
+                               ON t.transactioned_by = u.id
                                WHERE is_archived = ?
                                ORDER BY created_at DESC");
 $stmt->bind_param("i", $is_archived);
@@ -36,7 +38,7 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                         value ='".htmlspecialchars($row['transaction_name'])."'>
                  
                  </td>
-                 <td>".htmlspecialchars($row['transactioned_by'])."</td>
+                 <td>".htmlspecialchars($row['givenName'])."</td>
                  <td>
                  <span class='viewSpan'>".htmlspecialchars($row['item_id'])."</span>
                  <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='item_id'

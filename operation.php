@@ -9,11 +9,6 @@ $loggeduser = $_SESSION['id'];
 <?php 
 include "db/db_connect_emanagepro.php";
 
-$sql_transactions = "SELECT transaction_id, transaction_name, transactioned_by, quantity, item_id
-                     FROM transactions 
-                     WHERE is_archived = 0
-                     ORDER BY transaction_id DESC";
-$result_transactions = $conn->query($sql_transactions);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +18,7 @@ $result_transactions = $conn->query($sql_transactions);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="css/transaction.css">
+        <link rel="stylesheet" href="css/operation.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -67,12 +62,12 @@ $result_transactions = $conn->query($sql_transactions);
 
         <div class="section-header">Operations</div>
 
-        <div class="transaction-content">
+        <div class="operation-content">
             <div class="formContainer">
                 <div class="formTitle"><p>Insert Operation</p></div>
                 <form method="post" id="insertForm">
-                    <label for="transaction_name">Transaction Name:</label>
-                    <input type="text" name="transaction_name" id="transaction_name" required>
+                    <label for="operation_name">Transaction Name:</label>
+                    <input type="text" name="operation_name" id="operation_name" required>
                     <label for="item_id">Item Id:</label>
                     <input type="number" name="item_id" id="item_id" required>
                     <label for="quantity">Quantity:</label>
@@ -82,9 +77,9 @@ $result_transactions = $conn->query($sql_transactions);
                 </form>
             </div>
 
-             <div class="table-transaction" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
+             <div class="table-operation" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
                 <div class="table-title">
-                     <p id="title-table">Recent Transaction</p>
+                     <p id="title-table">Operation Table</p>
                      <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff" id="toggle-View">View Archived</p>
                 </div>
            <div id="table">
@@ -97,6 +92,6 @@ $result_transactions = $conn->query($sql_transactions);
 
      
 
-<script src="transaction.js"></script>
+<script src=".js"></script>
 </body>
 </html>

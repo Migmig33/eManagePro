@@ -9,11 +9,6 @@ $loggeduser = $_SESSION['id'];
 <?php 
 include "db/db_connect_emanagepro.php";
 
-$sql_transactions = "SELECT transaction_id, transaction_name, transactioned_by, quantity, item_id
-                     FROM transactions 
-                     WHERE is_archived = 0
-                     ORDER BY transaction_id DESC";
-$result_transactions = $conn->query($sql_transactions);
 ?>
 <!DOCTYPE html>
 <html lang="en">
