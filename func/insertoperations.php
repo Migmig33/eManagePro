@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
 
     } else {
-        echo json_encode(['success' => false, 'message' => 'Error on Adding Operation.']);
+        echo json_encode(['success' => false, 'message' => 'Error on Adding Operation. Please, Try Again Later.']);
         exit;
     }
     $stmt->close();

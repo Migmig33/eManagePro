@@ -120,7 +120,7 @@ $result_inventory = $conn->query($sql_inventory);
                     <i class="fa-solid fa-newspaper"></i>
                     <p>Daily Report</p>
                 </a>
-                 <a class="option" href="#">
+                 <a class="option" href="inventory.php">
                     <i class="fa-solid fa-warehouse"></i>
                     <p>Inventory</p>
                 </a>
