@@ -19,12 +19,12 @@ $result_inventory = $stmt->get_result();
 if($result_inventory && $result_inventory->num_rows > 0){
     echo "<table border = '1' cellpadding = '10' 
           <tr>
-             <td>Item ID</td>
-             <td>Item Name</td>
-             <td>Price</td>
-             <td>Stock</td>
-             <td>Added By</td>
-             <td>Actions</td>
+             <th>Item ID</th>
+             <th>Item Name</th>
+             <th>Price</th>
+             <th>Stock</th>
+             <th>Added By</th>
+             <th>Actions</th>
 
           </tr>";
         while($row = $result_inventory->fetch_assoc()){
@@ -57,10 +57,10 @@ if($result_inventory && $result_inventory->num_rows > 0){
                     
                       <td style='text-align:center; overflow-x: auto;'>
                           <a class='update-btn' style='cursor:pointer;'><i class='fa-regular fa-pen-to-square' data-id='".$row['item_id']."'></i></a>
-                          <a class='saveRowBtn' style=' display: none; cursor:pointer;'><i class='fa-solid fa-check' data-id='".$row['item_id']."'></i></a>
+                          <a class='saveRowBtn' style=' display: none; cursor:pointer;'><i class='fa-solid fa-check'  data-id='".$row['item_id']."'></i></a>
 
                           <a class='delete-btn' style='cursor:pointer'
-                          onclick=\"return confirm('Are you sure you want to Delete this Item?. Once you confirmed, process can\\t be undone.');.\">
+                          onclick=\"return confirm('Are you sure you want to Delete this Item?. Once you confirmed, process can\\t be undone.');\">
                           <i class='fa-solid fa-trash'  data-id='".$row['item_id']."'></i></a>
                        </td>
                        </tr>";

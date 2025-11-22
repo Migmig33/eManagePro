@@ -166,12 +166,12 @@ table{
     width: 100%;
     background-color: white;
     color: black;
-    border-radius: 12px;
 }
 td{
     max-width: 150px;
     overflow-x: hidden;
 }
+
 
 @media (max-width: 480px){
     .inventory-content{
