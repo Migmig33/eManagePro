@@ -4,7 +4,7 @@ if(!isset($_SESSION['id'])){
     header('Location: login.php');
 }
 include'../db/db_connect_emanagepro.php';
-$operation_id = intval($_GET['id'] ?? 0);
+$operation_id = intval($_POST['id'] ?? 0);
 $stmt = $conn->prepare("DELETE FROM operations WHERE operation_id = ?");
 $stmt->bind_param("i", $operation_id);
 

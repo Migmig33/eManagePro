@@ -10,10 +10,10 @@ $stmt = $conn->prepare("UPDATE transactions
                         WHERE transaction_id = ? ");
 $stmt->bind_param("i", $transaction_id);
 if($stmt->execute() == TRUE){
-    echo json_encode(['success' => true, 'message' => 'Transaction Unarchived Successfully']);
+    echo json_encode(['success' => true, 'message' => 'Transaction Unarchived Successfully.']);
     exit;
 }else{
-    echo json_encode(['success' => false, 'message' => 'Failed to Unarchived the Transaction']);
+    echo json_encode(['success' => false, 'message' => 'Failed to Unarchived the Transaction.']);
     exit;
 
 }

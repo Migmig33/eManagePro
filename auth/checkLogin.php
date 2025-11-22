@@ -23,9 +23,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $user = $result->fetch_assoc();
 
         if($password == $user["password"]){
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['id'] = $users['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: ../dashboard.php");
+            header("Location: ../operation.php");
             exit;
         } else{
             echo "<script>alert('INVALID USERNAME OR PASSWORD, TRY AGAIN');

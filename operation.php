@@ -2,6 +2,7 @@
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
+    exit();
 }
 $loggeduser = $_SESSION['id'];
 ?>
@@ -65,14 +66,14 @@ include "db/db_connect_emanagepro.php";
         <div class="operation-content">
             <div class="formContainer">
                 <div class="formTitle"><p>Insert Operation</p></div>
-                <form method="post" id="insertForm">
-                    <label for="operation_name">Transaction Name:</label>
+                <form method="post" id="insertForm" >
+                    <label for="operation_name">Operation Name:</label>
                     <input type="text" name="operation_name" id="operation_name" required>
-                    <label for="item_id">Item Id:</label>
-                    <input type="number" name="item_id" id="item_id" required>
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" required>
-                    <input type="submit" Value="Add Transaction" id="insert">
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" id="description" required>
+                    <label for="expected_finish">Expected Finish Date</label>
+                    <input type="datetime-local" name="expected_finish" id="expected_finish" placeholder="Select Date.."required>
+                    <input type="submit" Value="Add Operation" id="insert">
 
                 </form>
             </div>
@@ -80,10 +81,9 @@ include "db/db_connect_emanagepro.php";
              <div class="table-operation" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
                 <div class="table-title">
                      <p id="title-table">Operation Table</p>
-                     <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff" id="toggle-View">View Archived</p>
                 </div>
            <div id="table">
-           // table //
+   
            </div>
         </div>
 
@@ -91,7 +91,7 @@ include "db/db_connect_emanagepro.php";
         </div>
 
      
-
-<script src=".js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="operation.js"></script>
 </body>
 </html>

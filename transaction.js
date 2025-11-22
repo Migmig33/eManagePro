@@ -26,7 +26,7 @@ window.addEventListener("load", function(){
 });
 // domcontentload so the html must load first before the script runs
 document.addEventListener("DOMContentLoaded", function(){
-// clicking the edit btn in the tablle row will make the row editable, once it click "save" the edited row will br updated to the databse //
+// clicking the edit btn in the tablle row will make the row editable, once it click "save" the edited row will br updated to the database  ==== also included archived, unarchived, delete //
     document.getElementById("table").addEventListener("click", function(e){
         if(e.target.classList.contains("fa-pen-to-square")){
             let row = e.target.closest("tr");
