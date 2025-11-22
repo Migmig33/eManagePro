@@ -3,8 +3,8 @@
 }
 
 body {
-    background: linear-gradient(90deg, #8f8c8c, #1a1a1a);
-    color: white;
+    background: #F5F5F5;
+    color: #2E2E2E;
     margin: 0 20px;
 
 }
@@ -37,23 +37,32 @@ body {
 
 .sidebar{
     position: fixed;
-    background: black;
+    background-color: #5A9BD5;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     top: 0;
     left: 0;
     height: 100%;
     width: 25%;
     z-index: 1001;
     overflow-y: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
 }
 .title{
     margin-bottom: 100px;
-    background-color: rgb(71, 72, 74);
-    padding: 20px 86px;
+    background-color: #5A9BD5;
+    border: 3px solid;
+    border-color: #F5F5F5;
+    padding: 20px 36px;
     margin: 0 auto;
+    border-radius: 12px;
+    color: white;
 
 }
 .title p{
-    font-size: clamp(12px, 2vw, 20px);
+    font-size: 20px;
+    font-weight: 600;
 }
 .pages{
     flex-direction: column;
@@ -75,8 +84,11 @@ body {
     margin-top: 18px;
 }
 .option:hover{
+    color: #2E2E2E;
+
     background-color: #a6a6a6;
 }
+
 
 
 
@@ -86,7 +98,7 @@ body {
     font-size: 25px;
     font-weight: 700;
 }
-.operation-content{
+.transaction-content{
     margin-left: 25%;
     flex-wrap: wrap;
     display: flex;
@@ -94,28 +106,32 @@ body {
 }
 .formContainer{
     margin-top: 20px;
-    background-color: #000000;
+    background-color: #ffffff;
     padding: 20px;
     width: 100%;
     border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
 }
 .formTitle{
     font-size: 18px;
     font-weight: 700;
 }
-.table-operation{
-    background-color: #000000;
+.table-transaction{
+    background-color: #ffffff;
     border-radius: 12px;
     padding: 10px;
     width: 100%;
     overflow-x: auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
 
 }
-.table-operation{
+.table-transaction{
     font-size: 16px;
 
 }
-.table-operation a{
+.table-transaction a{
     text-decoration: none;
     color: black;
 }
@@ -128,6 +144,7 @@ body {
     font-weight: 500; 
     margin: 20px 50px;
 }
+
 .td-actions{
     width: 2000px;
 }
@@ -139,12 +156,15 @@ form{
 label{
     margin-top: 20px;
 }
-
+input[type="text"]{
+    border: 1px solid rgb(0, 0, 0) ;
+}
 input[type="submit"]{
     width: 15%;
     padding: 10px;
     margin: 20px auto;
-    background: linear-gradient(90deg, #8f8c8c, #1a1a1a);
+    background: #000000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     border: 1px solid white;
     color: white;
@@ -157,7 +177,6 @@ table{
     width: 100%;
     background-color: white;
     color: black;
-    border-radius: 12px;
 }
 td{
     max-width: 150px;
@@ -165,19 +184,19 @@ td{
 }
 
 @media (max-width: 480px){
-    .operation-content{
+    .transaction-content{
         margin-left: 0;
     }
     .section-header{
         margin-top: 70px;
         margin-left: 0;
     }
-    .table-operation p{
+    .table-transaction p{
         font-size: 10px;
     }
     .sidebar{
-        width: 50%;
-        left: -50%;
+        width: 70%;
+        left: -70%;
         transition: 0.5s ease;
     }
     .sidebar.show{

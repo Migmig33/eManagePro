@@ -112,13 +112,13 @@ $result_inventory = $conn->query($sql_inventory);
                      <i class="fa-solid fa-receipt"></i>
                      <p>Transaction</p>
                 </a>
-                <a class="option" href="#">
+                <a class="option" href="operation.php">
                     <i class="fa-solid fa-list-check"></i>
                     <p>Operations</p>
                 </a>
-                <a class="option" href="#">
+                <a class="option" href="report.php">
                     <i class="fa-solid fa-newspaper"></i>
-                    <p>Report</p>
+                    <p>Daily Report</p>
                 </a>
                  <a class="option" href="#">
                     <i class="fa-solid fa-warehouse"></i>
@@ -141,42 +141,42 @@ $result_inventory = $conn->query($sql_inventory);
 
     <div class="dashboard-content">
         <div class="dashboard-summary">
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Total Transaction</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-receipt"></i>
                       <h1 id="numtransaction">0</h1>
                 </div>
             </div>
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Pending Operations</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-truck-moving"></i>
                       <h1 id="numtransaction">0</h1>
                 </div>                     
             </div>
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Finished Operations</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-check"></i>
                       <h1 id="numtransaction">0</h1>
                 </div>       
             </div>
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Total Items</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-box"></i>
                       <h1 id="numitems">0</h1>
                 </div>     
             </div>
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Total Value</p>
                <div class="icons-total">
                       <i class="fa-solid fa-dollar-sign"></i>
                       <h1 id="numtransaction">0</h1>
                 </div>       
             </div>
-            <div class="dashboard-box" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);   ">
+            <div class="dashboard-box">
                 <p>Total Operations</p>
                <div class="icons-total">
                       <h1 id="numoperation">0</h1>
@@ -186,26 +186,7 @@ $result_inventory = $conn->query($sql_inventory);
         </div>
 
 
-        <div class="displayaddtransac" id="formtransac">
-            <p>Add Transaction</p>
-            <form action="func/inserttransac.php" method="post" style=" 
-                 display: flex;
-                 flex-direction: column;
-                 justify-content: center;
-                 ">
-                <label for="transaction_name">Transaction:</label>
-                <input type="text" name="transaction_name" id="transaction_name" required>
-
-                <label for="quantity">Quantity:</label>
-                <input type="number" name="quantity" id="quantity" required>
-
-                <label for="item_id">Item ID:</label>
-                <input type="number" name="item_id" id="item_id" required>
-
-                <input type="submit" value="Add Transaction">
-                <p id="exitformtransac" style="font-size: 12px; text-align: center; cursor:pointer;">Exit</p>
-            </form>
-        </div>
+      
 
 
         <div class="operation-status">

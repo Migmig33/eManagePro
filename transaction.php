@@ -18,7 +18,7 @@ include "db/db_connect_emanagepro.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="css/transaction.css">
+        <link rel="stylesheet" href="css/transactionss.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -44,9 +44,9 @@ include "db/db_connect_emanagepro.php";
                     <i class="fa-solid fa-list-check"></i>
                     <p>Operations</p>
                 </a>
-                <a class="option" href="#">
+                <a class="option" href="report.php">
                     <i class="fa-solid fa-newspaper"></i>
-                    <p>Report</p>
+                    <p>Daily Report</p>
                 </a>
                  <a class="option" href="#">
                     <i class="fa-solid fa-warehouse"></i>
@@ -77,9 +77,9 @@ include "db/db_connect_emanagepro.php";
                 </form>
             </div>
 
-             <div class="table-transaction" style=" box-shadow: -10px 10px 10px rgb(79, 73, 73);">
+             <div class="table-transaction" >
                 <div class="table-title">
-                     <p id="title-table">Recent Transaction</p>
+                     <p id="title-table" class="title-table">Recent Transaction</p>
                      <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff" id="toggle-View">View Archived</p>
                 </div>
            <div id="table">

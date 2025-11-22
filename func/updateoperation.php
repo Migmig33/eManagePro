@@ -2,27 +2,30 @@
 session_start();
 if(!isset($_SESSION["id"])){
     header('Location: login.php');
+    exit;
     
 }
 include'../db/db_connect_emanagepro.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST' ){
-    $operation_id = intval($_POST['operation_id'] ?? 0);
+    $operation_id = intval($_POST['operation_id'] ?? '');
     $operation_name = trim($_POST['operation_name'] ?? '');
-    $isactive = intval($_POST['isactive'] ?? 0);
     $description = trim($_POST['description'] ?? '');
+    $expected_finish_raw = $_POST['expected_finish'] ?? '';
+
+     $expected_finish = str_replace('T', ' ', $expected_finish_raw) . ':00';
+
 
 
 }
-$isactive = ($isactive == 1)?  1 : 0;
-$stmt = $conn->prepare("UPDATE operations SET operation_name = ?, isactive = ?, description = ? WHERE operation_id = ?");
-$stmt->bind_param("sisi", $operation_name, $isactive, $description, $operation_id);
+$stmt = $conn->prepare("UPDATE operations SET operation_name = ?, expected_finish = ?, description = ? WHERE operation_id = ?");
+$stmt->bind_param("sssi", $operation_name, $expected_finish, $description, $operation_id);
 
-if($stmt->execute()){
-    echo"Updated";
+if($stmt->execute() == TRUE){
+    echo json_encode(['success' => true, 'message' => 'Operation Successfully Updated.']);
     exit;
 }else{
-    echo"failed: " .$stmt->error;
+    echo json_encode(['success' => false, 'message' => 'Error on Updating Operations. Please, Try Again.' . $stmt->error]);
     exit;
 }
 $stmt->close();

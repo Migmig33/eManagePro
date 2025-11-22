@@ -43,26 +43,34 @@ if($result_operations && $result_operations->num_rows > 0){
                        <td>
 
                           <span class='viewSpan'>".htmlspecialchars($row['description'])."</span>
-                          <input class='editInput' type='text' name='operation_name' style='display: none; width: 90%; padding: 4px;'
+                          <input class='editInput' type='text' name='description' style='display: none; width: 90%; padding: 4px;'
                           value='".htmlspecialchars($row['description'])."'>
 
                        </td>
 
                         <td>".htmlspecialchars($row['STATUS'])."</td>
                        <td>".htmlspecialchars($row['created_at'])."</td>
-                       <td>".htmlspecialchars($row['expected_finish'])."</td>
+                       <td>
+
+                       <span class='viewSpan'>".htmlspecialchars($row['expected_finish'])."</span>
+                       <input class='editInput' type='datetime-local' name='expected_finish' style='display: none; width: 90%; padding: 4px;'
+                       value='".htmlspecialchars($row['expected_finish'])."'>
+                       
+                       </td>
 
                        <td style='text-align: center; overflow-x:auto;'>
                            <a class='update-btn' style='cursor:pointer;'><i class='fa-regular fa-pen-to-square' data-id='".$row['operation_id']."'></i></a>
                            <a class='saveRowBtn' style='display: none; cursor:pointer;'><i class='fa-solid fa-check' data-id='".$row['operation_id']."'></i></a>
 
-                           <a class='delete-btn' style='cursor:pointer;' onclick=\"return confirm('Are you sure you want to Delete this Operation?. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-trash'  data-id='".$row['operation_id']."'></i></a>
+                           <a class='delete-btn' style='cursor:pointer;'
+                            onclick=\"return confirm('Are you sure you want to Delete this Operation?. Once you confirmed, the process can\\'t be undone.');\">
+                            <i class='fa-solid fa-trash'  data-id='".$row['operation_id']."'></i></a>
 
                        </td>
                        
                       
 
-                       ";
+                    </tr>";
 
      }
     echo"</table>";

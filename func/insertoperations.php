@@ -8,6 +8,7 @@ include'../db/db_connect_emanagepro.php';
 
 $operated_by = $_SESSION['id'] ?? 'Unknown';
 
+
 $timenow = date("Y-m-d H:i:s");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $operation_name = trim($_POST['operation_name']);
