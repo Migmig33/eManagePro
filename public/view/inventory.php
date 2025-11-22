@@ -2,12 +2,12 @@
 session_start();
 if(!isset($_SESSION['id'])){
     header("Location: login.php");
+    exit();
 }
 $loggeduser = $_SESSION['id'];
 ?>
 
 <?php 
-include "db/db_connect_emanagepro.php";
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ include "db/db_connect_emanagepro.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="css/transactionss.css">
+        <link rel="stylesheet" href="../css/inventoryy.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -36,11 +36,11 @@ include "db/db_connect_emanagepro.php";
                     <i class="fa-solid fa-chart-area"></i>
                    <p>DashBoard</p>
                 </a>
-                <a class="option">
+                <a class="option" href="transaction.php">
                      <i class="fa-solid fa-receipt"></i>
                      <p>Transaction</p>
                 </a>
-                <a class="option" href="operation.php">
+                <a class="option" >
                     <i class="fa-solid fa-list-check"></i>
                     <p>Operations</p>
                 </a>
@@ -48,7 +48,7 @@ include "db/db_connect_emanagepro.php";
                     <i class="fa-solid fa-newspaper"></i>
                     <p>Daily Report</p>
                 </a>
-                 <a class="option" href="inventory.php">
+                 <a class="option" href="#">
                     <i class="fa-solid fa-warehouse"></i>
                     <p>Inventory</p>
                 </a>
@@ -60,30 +60,29 @@ include "db/db_connect_emanagepro.php";
             </div>
         </div>
 
-        <div class="section-header">Transactions</div>
+        <div class="section-header">Inventory</div>
 
-        <div class="transaction-content">
+        <div class="inventory-content">
             <div class="formContainer">
-                <div class="formTitle"><p>Insert Transaction</p></div>
-                <form method="post" id="insertForm">
-                    <label for="transaction_name">Transaction Name:</label>
-                    <input type="text" name="transaction_name" id="transaction_name" required>
-                    <label for="item_id">Item Id:</label>
-                    <input type="number" name="item_id" id="item_id" required>
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" required>
-                    <input type="submit" Value="Add Transaction" id="insert">
+                <div class="formTitle"><p>Insert Item</p></div>
+                <form method="post" id="insertForm" >
+                    <label for="item_name">Product Name:</label>
+                    <input type="text" name="item_name" id="item_name" required>
+                    <label for="price">Price:</label>
+                    <input type="number" name ="price" id="price" required>
+                    <label for="stock">Stock</label>
+                    <input type="number" name="stock" id="stock" required>
+                    <input type="submit" Value="Add Item" id="insert">
 
                 </form>
             </div>
 
-             <div class="table-transaction" >
+             <div class="table-item">
                 <div class="table-title">
-                     <p id="title-table" class="title-table">Recent Transaction</p>
-                     <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff" id="toggle-View">View Archived</p>
+                     <p id="title-table">Item Table</p>
                 </div>
            <div id="table">
-           // table //
+   
            </div>
         </div>
 
@@ -91,8 +90,8 @@ include "db/db_connect_emanagepro.php";
         </div>
 
      
-
-<script src="transaction.js"></script>
+<script src="item.js"></script>
 <script src="js/dashboard.js"></script>
+
 </body>
 </html>

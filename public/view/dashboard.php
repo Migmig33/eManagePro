@@ -9,7 +9,7 @@ $loggeduser = $_SESSION['id'];
 
 <?php
 
-include 'db/db_connect_emanagepro.php';
+include'../../db/db_connect_emanagepro.php';
 
 //get item_id to update the item in the inventory table
 $item_id = intval($_GET['item_id'] ?? 0);
@@ -85,7 +85,7 @@ $result_inventory = $conn->query($sql_inventory);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/dashboards.css">
+    <link rel="stylesheet" href="../css/dashboards.css">
     <title>eManagePro</title>
 </head>
 
@@ -214,8 +214,8 @@ $result_inventory = $conn->query($sql_inventory);
 
 
     <script src="js/dashboard.js"></script>
-    <script src="apifunc/getDatarows.js"></script>
-    <script src="apifunc/callStatus.js"></script>
+    <script src="../../apifunc/getDatarows.js"></script>
+    <script src="../../apifunc/callStatus.js"></script>
 
 
 

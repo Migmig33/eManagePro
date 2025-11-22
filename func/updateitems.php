@@ -12,7 +12,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $price = intval($_POST['price'] ?? 0 );
     $stock = intval($_POST['stock'] ?? 0);
 }
-
+if($item_name == '' || $price < 0 || $stock < 0){
+    echo json_encode(['success' => false, 'message' => 'Invalid Input. Please, Try Again.']);
+    exit;
+}  
 $stmt = $conn->prepare("UPDATE inventory SET item_name = ?, price = ?, stock = ? WHERE item_id = ?");
 $stmt->bind_param("siii", $item_name, $price, $stock, $item_id);
 if($stmt->execute() === TRUE){
