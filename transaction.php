@@ -93,5 +93,6 @@ include "db/db_connect_emanagepro.php";
      
 
 <script src="transaction.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
 </html>

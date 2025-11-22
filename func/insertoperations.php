@@ -12,9 +12,9 @@ $timenow = date("Y-m-d H:i:s");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $operation_name = trim($_POST['operation_name']);
     $description = trim($_POST['description']);
-    $expected_finish = $_POST['expected_finish'];
+    $expected_finish_raw = $_POST['expected_finish'];
 
-    $expected_finish = str_replace('T', '',$expected_finish_raw) . ':00';
+    $expected_finish = str_replace('T', ' ',$expected_finish_raw) . ':00';
 
 
     if ($operation_name == '' || $description == '') {

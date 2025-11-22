@@ -67,7 +67,7 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                  }else{
                     echo "  <a class='unarchive-btn'><i class='fa-solid fa-box-open' data-id='".$row['transaction_id']."'></i></a>
                             <a class='delete-btn'
-                            onclick=\"return confirm('Are you sure u want to Delete this transaction. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-trash'  data-id='".$row['transaction_id']."'></i></a>";
+                            onclick=\"return confirm('Are you sure u want to Delete this Transaction?. Once you confirmed, the process can\\'t be undone.');\"><i class='fa-solid fa-trash'  data-id='".$row['transaction_id']."'></i></a>";
 
                  }
                  

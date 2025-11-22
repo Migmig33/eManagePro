@@ -5,7 +5,9 @@ if(!isset($_SESSION['id'])){
     exit;
 }
 include'db/db_connect_emanagepro.php';
-$stmt = $conn->prepare("SELECT o.operation_id, o.operation_name, o.description, o.isactive, o.created_at, o.expected_finish, u.givenName
+$stmt = $conn->prepare("SELECT o.operation_id, o.operation_name, o.description,
+                     CASE WHEN o.isactive  = 0 THEN 'Completed'  WHEN o.isactive = 1 THEN 'Pending' END AS STATUS,
+                    o.created_at, o.expected_finish, u.givenName
                      FROM operations as o
                      INNER JOIN users as u
                      ON o.operated_by  = u.id
@@ -46,9 +48,9 @@ if($result_operations && $result_operations->num_rows > 0){
 
                        </td>
 
-                        <td>".htmlspecialchars($row['isactive'])."</td>;
-                       <td>".htmlspecialchars($row['created_at'])."</td>;
-                       <td>".htmlspecialchars($row['expected_finish'])."</td>;
+                        <td>".htmlspecialchars($row['STATUS'])."</td>
+                       <td>".htmlspecialchars($row['created_at'])."</td>
+                       <td>".htmlspecialchars($row['expected_finish'])."</td>
 
                        <td style='text-align: center; overflow-x:auto;'>
                            <a class='update-btn' style='cursor:pointer;'><i class='fa-regular fa-pen-to-square' data-id='".$row['operation_id']."'></i></a>

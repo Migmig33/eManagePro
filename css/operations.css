@@ -165,14 +165,14 @@ td{
 }
 
 @media (max-width: 480px){
-    .transaction-content{
+    .operation-content{
         margin-left: 0;
     }
     .section-header{
         margin-top: 70px;
         margin-left: 0;
     }
-    .table-transaction p{
+    .table-operation p{
         font-size: 10px;
     }
     .sidebar{

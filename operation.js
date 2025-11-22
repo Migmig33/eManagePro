@@ -11,12 +11,13 @@ window.addEventListener("load", function(){
 });
 
 document.addEventListener("DOMContentLoaded", function(){
+   
     flatpickr("#expected_finish", {
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         minDate: "today",
         time_24hr: false,
-        defaultDate: new Date(Date.now() + 86400000),
+        defaultDate: new Date(Date.now()),
         defaultHour: 17,
         defaultMinute: 0,
         minuteIncrement: 15
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let description = document.getElementById("description").value;
         let expectedDL = document.getElementById("expected_finish").value;
 
-        let formatexpectedDL = expectedDL.replace('', 'T');
+        let formatexpectedDL = expectedDL.replace(' ', 'T');
         let data = new FormData();
         data.append("operation_name", name);
         data.append("description", description);

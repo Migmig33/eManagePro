@@ -19,7 +19,7 @@ include "db/db_connect_emanagepro.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="css/operation.css">
+        <link rel="stylesheet" href="css/operations.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -93,5 +93,7 @@ include "db/db_connect_emanagepro.php";
      
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="operation.js"></script>
+<script src="js/dashboard.js"></script>
+
 </body>
 </html>
