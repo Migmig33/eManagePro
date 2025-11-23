@@ -124,7 +124,7 @@ $result_inventory = $conn->query($sql_inventory);
                     <i class="fa-solid fa-warehouse"></i>
                     <p>Inventory</p>
                 </a>
-                 <a class="option" href="auth/logout.php">
+                 <a class="option" href="../../auth/logout.php">
                     <i class="fa-solid fa-door-open"></i>
                     <p>Sign Out</p>
                 </a>

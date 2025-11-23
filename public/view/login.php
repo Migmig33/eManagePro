@@ -15,9 +15,9 @@
 
 
     <div class="container">
-        <h1>Sign In</h1>
+        <h1>Log In</h1>
         <form method="POST" action="../../auth/checkLogin.php">
-        <label for="username">Username:</label>
+        <label for="username">Employee Number:</label>
         <input type="text" name="username" id="username" required><br><br>
 
         <label for="password">Password:</label>
