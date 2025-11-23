@@ -17,7 +17,7 @@ $loggeduser = $_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/transactionss.css">
+        <link rel="stylesheet" href="../css/transaction.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -51,7 +51,7 @@ $loggeduser = $_SESSION['id'];
                     <i class="fa-solid fa-warehouse"></i>
                     <p>Inventory</p>
                 </a>
-                 <a class="option" href="#">
+                 <a class="option" href="../../auth/logout.php">
                     <i class="fa-solid fa-door-open"></i>
                     <p>Sign Out</p>
                 </a>

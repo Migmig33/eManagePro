@@ -22,7 +22,7 @@ if ($result_transactions && $result_transactions->num_rows > 0){
               <th>Transaction Id</th>
               <th>Transaction Name</th>
               <th>Transaction By</th>
-              <th>Item_id</th>
+              <th>Item Id</th>
               <th>Quantity</th>
               <th>Created At</th>
               <th>Actions</th>

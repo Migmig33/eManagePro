@@ -71,7 +71,7 @@ if($result_inventory && $result_inventory->num_rows > 0){
 
 
 }else{
-    echo "<p style = 'text-align: center;'>No Operation History</p>";
+    echo "<p style = 'text-align: center;'>No Items</p>";
 }
 $stmt->close();
 $conn->close();

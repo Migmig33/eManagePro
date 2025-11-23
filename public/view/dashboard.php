@@ -85,7 +85,7 @@ $result_inventory = $conn->query($sql_inventory);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/dashboardss.css">
     <title>eManagePro</title>
 </head>
 
@@ -142,45 +142,47 @@ $result_inventory = $conn->query($sql_inventory);
     <div class="dashboard-content">
         <div class="dashboard-summary">
             <div class="dashboard-box">
-                <p>Total Transaction</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-receipt"></i>
                       <h1 id="numtransaction">0</h1>
                 </div>
+                <p style="text-align:center;">Total Transaction</p>
             </div>
             <div class="dashboard-box">
-                <p>Pending Operations</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-truck-moving"></i>
-                      <h1 id="numtransaction">0</h1>
-                </div>                     
+                      <h1 id="activeoperation">0</h1>
+                </div>              
+                <p style="text-align:center;">Pending Operations</p>
             </div>
             <div class="dashboard-box">
-                <p>Finished Operations</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-check"></i>
-                      <h1 id="numtransaction">0</h1>
+                      <h1 id="notactiveoperation">0</h1>
                 </div>       
+                <p style="text-align:center;">Finished Operations</p>
             </div>
             <div class="dashboard-box">
-                <p>Total Items</p>
                 <div class="icons-total">
                       <i class="fa-solid fa-box"></i>
                       <h1 id="numitems">0</h1>
                 </div>     
+                <p style="text-align:center;">Total Items</p>
+
             </div>
             <div class="dashboard-box">
-                <p>Total Value</p>
                <div class="icons-total">
                       <i class="fa-solid fa-dollar-sign"></i>
-                      <h1 id="numtransaction">0</h1>
+                      <h1 id="totalvalue">0</h1>
                 </div>       
+                <p style="text-align:center;">Total Value</p>
             </div>
             <div class="dashboard-box">
-                <p>Total Operations</p>
                <div class="icons-total">
+                      <i class="fa-solid fa-dollar-sign"></i>
                       <h1 id="numoperation">0</h1>
                 </div>       
+                <p style="text-align:center;">Total Operations</p>
             </div>
 
         </div>
@@ -214,7 +216,7 @@ $result_inventory = $conn->query($sql_inventory);
 
 
     <script src="../js/dashboard.js"></script>
-    <script src="../js/getDatanums.js"></script>
+    <script src="../js/getDatanumss.js"></script>
     <script src="../js/getStatus.js"></script>
 
 

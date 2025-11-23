@@ -24,20 +24,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo json_encode(['success' => true, 'message' => 'There is no existing Item Id.']);
         exit;
     }
+
     if($transaction_name =='' || $quantity < 1 || $item_id < 1){
         echo json_encode(['success' => false, 'message' => 'Invalid Input. Please, Try Again.']);
         exit;
     }
-    $stmt = $conn->prepare("INSERT INTO transactions (transaction_name, item_id, quantity,  transactioned_by, is_archived) VALUES (?,?,?,?,0)");
-    $stmt -> bind_param("siis", $transaction_name, $item_id, $quantity, $transactioned_by);
+    $item = $result_itemcheck->fetch_assoc();
+    $stock = intval($item['stock']);
+    $price = floatval($item['price']);
 
-    if($stmt->execute()){
-        echo json_encode(['success' => true, 'message' => 'Transaction Added Successfully.']);
-        exit;
-    } else{
-        echo json_encode(['success' => true, 'message' => 'Failed to Add Transaction.']);
+    if($quantity > $stock){
+        echo json_encode(['success' => false, 'message' => 'Not Enough Stock Available.']);
         exit;
     }
+    $conn->begin_transaction();
+    try{
+         $stmt = $conn->prepare("INSERT INTO transactions (transaction_name, item_id, quantity,  transactioned_by, is_archived) VALUES (?,?,?,?,0)");
+         $stmt -> bind_param("siis", $transaction_name, $item_id, $quantity, $transactioned_by);
+         $stmt->execute();
+
+         $stmt2 = $conn->prepare("UPDATE inventory SET stock = stock - ? WHERE item_id = ?");
+         $stmt2->bind_param("ii", $quantity, $item_id);
+         $stmt2->execute();
+
+         $conn->commit();
+        echo json_encode(['success' => true, 'message' => 'Transaction Added Successfully.']);
+        exit;
+        
+    }catch(Exception $e){
+        $conn->rollback();
+        echo json_encode(['success' => false, 'message' => 'Failed to Add Transaction.']);
+        exit;
+    }
+   
     $stmt->close();
     $conn->close();
 ?>

@@ -37,7 +37,7 @@ body {
 
 .sidebar{
     position: fixed;
-    background-color: #5A9BD5;
+    background: linear-gradient(135deg, #9a3412 0%, #f97316 100%);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     top: 0;
@@ -51,7 +51,7 @@ body {
 }
 .title{
     margin-bottom: 100px;
-    background-color: #5A9BD5;
+    background: linear-gradient(135deg, #9a3412 0%, #f97316 100%);
     border: 3px solid;
     border-color: #F5F5F5;
     padding: 20px 36px;
