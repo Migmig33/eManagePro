@@ -1,5 +1,5 @@
 function loadOperation(){
-    fetch("loadOperation.php")
+    fetch("../loadDatas/loadOperation.php")
     .then(response => response.text())
     .then(data=> {
         document.getElementById("table").innerHTML = data;
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(){
         data.append("description", description);
         data.append("expected_finish", formatexpectedDL);
 
-        fetch("func/insertoperations.php", {
+        fetch("../../func/insertoperations.php", {
             method: 'POST',
             body: data
         })
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(){
             data.append("operation_name", name);
             data.append("description", description);
             data.append("expected_finish", formatexpectedDL);
-            fetch("func/updateoperation.php", {
+            fetch("../../func/updateoperation.php", {
                 method: 'POST',
                 body: data
             })
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let data = new FormData();
 
             data.append("operation_id", id);
-            fetch("func/deleteoperation.php",{
+            fetch("../../func/deleteoperation.php",{
                 method:'POST',
                 body: data
             })

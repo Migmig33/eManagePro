@@ -90,8 +90,8 @@ $loggeduser = $_SESSION['id'];
         </div>
 
      
-<script src="operation.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="../js/operations.js"></script>
+<script src="../js/dashboard.js"></script>
 
 </body>
 </html>

@@ -213,9 +213,9 @@ $result_inventory = $conn->query($sql_inventory);
 
 
 
-    <script src="js/dashboard.js"></script>
-    <script src="../../apifunc/getDatarows.js"></script>
-    <script src="../../apifunc/callStatus.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/getDatanums.js"></script>
+    <script src="../js/getStatus.js"></script>
 
 
 

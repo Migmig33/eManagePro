@@ -1,5 +1,5 @@
 function loadItem(){
-    fetch("loadItem.php")
+    fetch("../loadDatas/loadItem.php")
     .then(response => response.text())
     .then(data=>{
         document.getElementById("table").innerHTML = data;
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
         data.append("item_name", name);
         data.append("price", price);
         data.append("stock", stock);
-        fetch("func/insertitem.php", {
+        fetch("../../func/insertitem.php", {
             method: 'POST',
             body: data
         })
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
            data.append("item_name", name);
            data.append("price", price);
            data.append("stock", stock);
-           fetch("func/updateitems.php", {
+           fetch("../../func/updateitems.php", {
             method: 'POST',
             body: data
            })
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
            let data = new FormData();
 
            data.append("item_id", id);
-           fetch("func/deleteitem.php" ,{
+           fetch("../../func/deleteitem.php" ,{
               method: 'POST',
               body: data
         })

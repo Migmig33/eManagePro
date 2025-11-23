@@ -16,7 +16,7 @@
 
     <div class="container">
         <h1>Sign In</h1>
-        <form method="POST" action="auth/checkLogin.php">
+        <form method="POST" action="../../auth/checkLogin.php">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required><br><br>
 

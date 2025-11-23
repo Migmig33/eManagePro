@@ -5,7 +5,7 @@ if(!isset($_SESSION['id'])){
     exit;
 
 }
-include'db/db_connect_emanagepro.php';
+include'../../db/db_connect_emanagepro.php';
 
 $stmt = $conn->prepare("SELECT i.item_id, i.item_name, i.price, i.stock, u.givenName
                                FROM inventory AS i

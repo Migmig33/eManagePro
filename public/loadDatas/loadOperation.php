@@ -4,7 +4,7 @@ if(!isset($_SESSION['id'])){
     header('Location: login.php');
     exit;
 }
-include'db/db_connect_emanagepro.php';
+include'../../db/db_connect_emanagepro.php';
 $stmt = $conn->prepare("SELECT o.operation_id, o.operation_name, o.description,
                      CASE WHEN o.isactive  = 0 THEN 'Completed'  WHEN o.isactive = 1 THEN 'Pending' END AS STATUS,
                     o.created_at, o.expected_finish, u.givenName

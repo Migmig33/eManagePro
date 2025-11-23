@@ -4,7 +4,7 @@ if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit;
 }
-include "db/db_connect_emanagepro.php";
+include "../../db/db_connect_emanagepro.php";
 
 $is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 1;
 $stmt = $conn->prepare("SELECT t.transaction_id, t.transaction_name, t.item_id, t.quantity, t.created_at, u.givenName

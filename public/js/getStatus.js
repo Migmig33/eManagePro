@@ -12,7 +12,7 @@ const btnnotactive = document.getElementById("complete");
 
 let operationlist = [];
 
-fetch('apifunc/getStatus.php')
+fetch('../js/getStatus.php')
     .then(res => res.json())
     .then(result => {
         if (Array.isArray(result) && result.length >= 1) {

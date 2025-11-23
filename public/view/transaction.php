@@ -91,7 +91,7 @@ $loggeduser = $_SESSION['id'];
 
      
 
-<script src="transaction.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="../js/transactions.js"></script>
+<script src="../js/dashboard.js"></script>
 </body>
 </html>

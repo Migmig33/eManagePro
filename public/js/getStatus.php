@@ -4,7 +4,7 @@ if(!isset($_SESSION['id'])){
     header('Location: homepage.php');
     exit;
 }
-include'../db/db_connect_emanagepro.php';
+include'../../db/db_connect_emanagepro.php';
 
 
 
