@@ -179,7 +179,7 @@ $result_inventory = $conn->query($sql_inventory);
             </div>
             <div class="dashboard-box">
                <div class="icons-total">
-                      <i class="fa-solid fa-dollar-sign"></i>
+                      <i class="fa-solid fa-mask"></i>
                       <h1 id="numoperation">0</h1>
                 </div>       
                 <p style="text-align:center;">Total Operations</p>
