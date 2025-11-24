@@ -9,10 +9,10 @@ function loadDataDailyTransac(){
 window.addEventListener('load', function(){
     loadDataDailyTransac();
 });
-/*function loadDataDailyOperate(){
+function loadDataDailyOperate(){
     fetch("../loadData/loadDailyOperation.php")
     .then(response => response.text())
     .then(data =>{
         document.getElementById("table-operation").inertHTML = data;
-    })
-}*/
+    });
+}
