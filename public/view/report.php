@@ -17,7 +17,7 @@ $loggeduser = $_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/report.css">
+        <link rel="stylesheet" href="../css/reports.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -61,32 +61,35 @@ $loggeduser = $_SESSION['id'];
 
         <div class="section-header">Daily Report</div>
 
-        <div class="transaction-content">
+        <div class="content">
           
              <div class="table-transaction" >
                 <div class="table-title">
                      <p id="title-table" class="title-table">Today's Transaction</p>
-                      <div id="table-transaction">
-                     </div>  
+                       
                 </div>
+                 <div id="table-transactions">
+                     </div>
+            </div>
+            
+
+            <div class="table-operation" >
+                <div class="table-title">
+                     <p id="title-table" class="title-table">Today's Operation</p>
+                      
+                </div>
+                <div id="table-operations">
+                     </div>
         </div>
         
 
-        <div class="operation-content">
+       
     
-             <div class="table-operation" >
-                <div class="table-title">
-                     <p id="title-table" class="title-table">Today's Operation</p>
-                      <div id="table-operation">
-                     </div>
-                </div>
-        </div>
-
-        </div>
+        
 
      
 
-<script src="../js/reportsss.js"></script>
+<script src="../js/reportss.js"></script>
 <script src="../js/dashboard.js"></script>
 </body>
 </html>

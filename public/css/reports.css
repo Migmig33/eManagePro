@@ -98,7 +98,7 @@ body {
     font-size: 25px;
     font-weight: 700;
 }
-.transaction-content{
+.content{
     margin-left: 25%;
     flex-wrap: wrap;
     display: flex;
@@ -126,12 +126,7 @@ body {
 }
 
 
-.transaction-content{
-    margin-left: 25%;
-    flex-wrap: wrap;
-    display: flex;
-    gap: 20px;
-}
+
 
 .table-operation{
     margin-top: 20px;
@@ -201,7 +196,7 @@ td{
 }
 
 @media (max-width: 480px){
-    .transaction-content{
+    .content{
         margin-left: 0;
     }
     .section-header{

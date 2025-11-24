@@ -38,7 +38,7 @@ $stmt->execute();
             }
             echo "</table>";
  }else{
-        echo "<p style = 'text-align: center;'>No Items Added Today.</p>";
+        echo "<p style = 'text-align: center;'>No Transactions Today.</p>";
  }
  $stmt->close();
  $conn->close();                                        
