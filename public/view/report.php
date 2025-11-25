@@ -81,6 +81,14 @@ $loggeduser = $_SESSION['id'];
                 <div id="table-operations">
                      </div>
         </div>
+
+           <div id="logs" class="logcontainer">
+                <div id="logs">
+                    <p id="datelog"></p>
+                    <p id="messagelog"></p>
+                    <p id="logtype"></p>
+                </div>
+            </div>
         
 
        

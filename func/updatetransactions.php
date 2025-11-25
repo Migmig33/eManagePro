@@ -36,6 +36,7 @@ if($result_itemcheck->num_rows <= 0){
     echo json_encode(['success' => false, 'message' => 'There is no existing Item ID.']);
     exit;
 }
+
 // if not this will execute
 
 // input validation
