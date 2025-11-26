@@ -7,6 +7,10 @@ if(!isset($_SESSION["id"])){
 }
 include'../db/db_connect_emanagepro.php';
 
+$updated_by = $_SESSION['id'] ?? 'Unknown';
+$currentuser_id = $conn->real_escape_string($updated_by);
+$conn->query("SET @currentuser_id = '$updated_by'");
+
 if($_SERVER['REQUEST_METHOD'] === 'POST' ){
     $operation_id = intval($_POST['operation_id'] ?? '');
     $operation_name = trim($_POST['operation_name'] ?? '');

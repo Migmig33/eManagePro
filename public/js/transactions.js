@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let data = new FormData();
 
             data.append("transaction_id", id);
-            fetch('../../func/deletetransaction.php', {
+            fetch('../../func/deletetransactionsss.php', {
                 method: 'POST',
                 body: data
             }).then(response => response.json())
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(){
             .catch(error =>{
                 alert(error.message);
                 loadArchivedTransac();
-            })
+            });
         }
      
     });
