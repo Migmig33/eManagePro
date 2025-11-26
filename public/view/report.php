@@ -17,7 +17,7 @@ $loggeduser = $_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/rs.css">
+        <link rel="stylesheet" href="../css/reports.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -74,20 +74,22 @@ $loggeduser = $_SESSION['id'];
 
             <div class="table-operation" >
                 <div class="table-title">
-                     <p id="title-table">Today's Transaction</p>        
+                     <p id="title-table">Today's Operations</p>        
                 </div>
                 <div id="table-operations" class="table-operations">
                 </div>
         </div>
 
-           <div id="logcontainer" class="logcontainer">
-            <div class="title-log">
+        <div class="log-content">
+            
+          <div class="title-log">
                 <p>Logs</p>
             </div>
-            <div class="logcolumn">
+               <div class="logcolumn">
                 <p>Message</p>
                 <p>Type</p>
-            </div>
+               </div>
+            <div id="logcontainer" class="logcontainer">
                 <div id="logs">
                     <p id="messagelog"></p>
                     <p id="logtype"></p>
@@ -95,6 +97,9 @@ $loggeduser = $_SESSION['id'];
             </div>
         
 
+
+            </div>
+         
        
     
         
