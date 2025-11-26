@@ -17,7 +17,7 @@ $loggeduser = $_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/reports.css">
+        <link rel="stylesheet" href="../css/rs.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -66,25 +66,29 @@ $loggeduser = $_SESSION['id'];
              <div class="table-transaction" >
                 <div class="table-title">
                      <p id="title-table" class="title-table">Today's Transaction</p>
-                       
                 </div>
-                 <div id="table-transactions">
-                     </div>
+                 <div id="table-transactions" class="table-transactions">
+                </div>
             </div>
             
 
             <div class="table-operation" >
                 <div class="table-title">
-                     <p id="title-table" class="title-table">Today's Operation</p>
-                      
+                     <p id="title-table">Today's Transaction</p>        
                 </div>
-                <div id="table-operations">
-                     </div>
+                <div id="table-operations" class="table-operations">
+                </div>
         </div>
 
-           <div id="logs" class="logcontainer">
+           <div id="logcontainer" class="logcontainer">
+            <div class="title-log">
+                <p>Logs</p>
+            </div>
+            <div class="logcolumn">
+                <p>Message</p>
+                <p>Type</p>
+            </div>
                 <div id="logs">
-                    <p id="datelog"></p>
                     <p id="messagelog"></p>
                     <p id="logtype"></p>
                 </div>
@@ -97,7 +101,7 @@ $loggeduser = $_SESSION['id'];
 
      
 
-<script src="../js/reportss.js"></script>
+<script src="../js/rs.js"></script>
 <script src="../js/dashboard.js"></script>
 </body>
 </html>
