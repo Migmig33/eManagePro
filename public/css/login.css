@@ -31,12 +31,14 @@ body{
     margin: 0 auto;
     width: 25%;
     padding: 20px;
+    border-radius: 12px;
 }
 
 .container h1{
     display: flex;
     justify-content: center;
     font-weight: 600;
+    color:#4285f4;
 }
 .container p{
     display: flex;

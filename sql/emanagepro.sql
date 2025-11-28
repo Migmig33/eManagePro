@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2025 at 03:57 PM
+-- Generation Time: Nov 28, 2025 at 02:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,20 @@ INSERT INTO `inventory` (`item_id`, `item_name`, `price`, `stock`, `added_by`) V
 (20, 'MARIWANA', 222, 22222, '7d6fb9ea'),
 (21, 'SHABU', 2000, 2222, '7d6fb9ea'),
 (22, 'ssss', 222, 2222, '7d6fb9ea'),
-(24, 'MARIWANA', 2000, 22215, '7d6fb9ea');
+(24, 'MARIWANA', 2000, 22138, '7d6fb9ea');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `log_id` int(11) NOT NULL,
+  `logs` char(200) DEFAULT NULL,
+  `user_id` char(8) DEFAULT NULL,
+  `date_generated` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,20 +81,67 @@ CREATE TABLE `operations` (
 
 INSERT INTO `operations` (`operation_id`, `operation_name`, `isactive`, `operated_by`, `description`, `created_at`, `expected_finish`) VALUES
 (1, 'BIRTHDAY', b'1', 'e378f552', 'BIRTHDAY BOYYY', '2025-11-22 19:18:25', '2025-11-29 23:59:00'),
-(4, 'LALA', b'0', '7d6fb9ea', 'kahit ano', '2025-11-23 18:30:04', '2025-11-23 19:32:00');
-
--- --------------------------------------------------------
+(4, 'LALA', b'0', '7d6fb9ea', 'kahit ano', '2025-11-23 18:30:04', '2025-11-23 19:32:00'),
+(5, 'LALA', b'1', '7d6fb9ea', 'kahit ano', '2025-11-24 23:36:44', '2025-11-24 23:38:00'),
+(6, 'LALA', b'1', '7d6fb9ea', 'kahit ano', '2025-11-25 00:02:53', '2025-11-26 00:02:00'),
+(7, 'LALA', b'1', '7d6fb9ea', 'kahit ano', '2025-11-26 11:54:56', '2025-11-26 11:56:00'),
+(10, 'sssss', b'1', 'e378f552', 'kahit anossssssssssss', '2025-11-26 22:05:49', '2025-11-27 22:05:00'),
+(12, 'ddd', b'1', '7d6fb9ea', 'ddd', '2025-11-26 22:23:43', '2025-11-27 22:23:00');
 
 --
--- Table structure for table `reports`
+-- Triggers `operations`
 --
-
-CREATE TABLE `reports` (
-  `report_id` int(11) NOT NULL,
-  `created_by` int(50) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp(),
-  `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DELIMITER $$
+CREATE TRIGGER `operation_deletelog` AFTER DELETE ON `operations` FOR EACH ROW BEGIN
+INSERT INTO logs(logs, user_id, date_generated)
+VALUES(
+    CONCAT(
+        (SELECT givenName FROM users WHERE id = @currentuser_id),
+        ' Delete Operation ID ',
+        OLD.operation_id,
+        ' at ',
+        NOW()
+        ),
+    @currentuser_id,
+    NOW()
+);
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `operation_insertlog` AFTER INSERT ON `operations` FOR EACH ROW BEGIN
+INSERT INTO logs(logs, user_id, date_generated)
+VALUES(
+    CONCAT(
+        (SELECT givenName FROM users WHERE id = NEW.operated_by),
+        ' Insert a Operation Named ',
+        (SELECT operation_name FROM operations WHERE operation_id = NEW.operation_id),
+        ' created at ',
+        NEW.created_at
+        ),
+    NEW.operated_by,
+    NOW()
+   );
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `operation_updatelog` AFTER UPDATE ON `operations` FOR EACH ROW BEGIN
+INSERT INTO logs(logs, user_id, date_generated)
+VALUES(
+    CONCAT(
+     (SELECT givenName FROM users WHERE id = @currentuser_id), 
+     ' Updated a Operation ID ', 
+     (SELECT operation_id FROM operations WHERE operation_id = OLD.operation_id),
+     ' at ',
+     NOW() 
+    ),
+   @currentuser_id,
+   NOW()
+  );
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -100,12 +160,42 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transactions`
+-- Triggers `transactions`
 --
-
-INSERT INTO `transactions` (`transaction_id`, `transaction_name`, `transactioned_by`, `quantity`, `item_id`, `is_archived`, `created_at`) VALUES
-(64, 'BENTA NG SHABU', '7d6fb9ea', 222222, 19, b'0', '2025-11-23 01:12:06'),
-(66, 'BENTA NG SHABU', '7d6fb9ea', 5, 24, b'0', '2025-11-22 22:25:11');
+DELIMITER $$
+CREATE TRIGGER `transaction_deletelog` AFTER DELETE ON `transactions` FOR EACH ROW BEGIN
+INSERT INTO logs(logs, user_id, date_generated)
+VALUES(
+    CONCAT(
+        (SELECT givenName FROM users WHERE id = @currentuser_id),
+        ' Deleted Transaction ID ',
+        OLD.transaction_id,
+        ' at ',
+        NOW()
+        ),
+    @currentuser_id,
+    NOW()
+);
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `transaction_insertlog` AFTER INSERT ON `transactions` FOR EACH ROW BEGIN
+INSERT INTO logs(logs, user_id, date_generated)
+VALUES(
+    CONCAT(
+        (SELECT givenName FROM users WHERE id = NEW.transactioned_by),
+        ' Inserted a Transaction Record named ',
+        (SELECT transaction_name FROM transactions WHERE transaction_id = NEW.transaction_id),
+        ' created at ',
+        NEW.created_at
+        ),
+    NEW.transactioned_by,
+    NOW()
+   );
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -128,12 +218,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `givenName`, `middleName`, `lastName`, `username`, `password`) VALUES
 ('7d6fb9ea', 'tre', 'young', 'hellnah', '202310386', 'true'),
-('e378f552', 'Juan', 'Dela', 'Cruz', 'juandc', 'hashed_pass1'),
+('e378f552', 'Juan', 'Dela', 'Cruz', '202310387', 'true'),
 ('e37e13cf', 'Maria', 'Santos', 'Lopez', 'marial', 'hashed_pass2'),
 ('e381b579', 'Pedro', 'Gomez', 'Reyes', 'pedror', 'hashed_pass3'),
 ('e3854462', 'Ana', 'Villanueva', 'Garcia', 'anavg', 'hashed_pass4'),
 ('e3894195', 'Carlos', 'Martinez', 'Diaz', 'carlosmd', 'hashed_pass5'),
-('e38d775b', 'Sofia', 'Luna', 'Torres', 'sofialt', 'hashed_pass6');
+('e38d775b', 'Sofia', 'Luna', 'Torres', '202310388', 'true');
 
 --
 -- Indexes for dumped tables
@@ -147,17 +237,18 @@ ALTER TABLE `inventory`
   ADD KEY `fk_added_by` (`added_by`);
 
 --
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `fk_user` (`user_id`);
+
+--
 -- Indexes for table `operations`
 --
 ALTER TABLE `operations`
   ADD PRIMARY KEY (`operation_id`),
   ADD KEY `fk_operated_by` (`operated_by`);
-
---
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`report_id`);
 
 --
 -- Indexes for table `transactions`
@@ -185,25 +276,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `operations`
 --
 ALTER TABLE `operations`
-  MODIFY `operation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `reports`
---
-ALTER TABLE `reports`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `operation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- Constraints for dumped tables
@@ -214,6 +305,12 @@ ALTER TABLE `transactions`
 --
 ALTER TABLE `inventory`
   ADD CONSTRAINT `fk_added_by` FOREIGN KEY (`added_by`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `operations`
@@ -227,22 +324,6 @@ ALTER TABLE `operations`
 ALTER TABLE `transactions`
   ADD CONSTRAINT `fk_item_id` FOREIGN KEY (`item_id`) REFERENCES `inventory` (`item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_transactioned_by` FOREIGN KEY (`transactioned_by`) REFERENCES `users` (`id`);
-
-DELIMITER $$
---
--- Events
---
-CREATE DEFINER=`root`@`localhost` EVENT `expire_operation` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-11-22 14:59:25' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE operations
-SET isactive = 0
-WHERE expected_finish <= NOW()
-AND isactive = 1$$
-
-CREATE DEFINER=`root`@`localhost` EVENT `operation_activation` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-11-22 18:53:31' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE operations
-SET isactive = 1
-WHERE expected_finish > NOW()
-AND isactive = 0$$
-
-DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
