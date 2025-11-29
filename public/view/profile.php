@@ -4,12 +4,10 @@ if(!isset($_SESSION['id'])){
     header("Location: login.php");
     exit();
 }
+include'../../db/db_connect_emanagepro.php';
 $loggeduser = $_SESSION['id'];
 ?>
 
-<?php 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +16,7 @@ $loggeduser = $_SESSION['id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/inventory.css">
+        <link rel="stylesheet" href="../css/profiles.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -32,7 +30,7 @@ $loggeduser = $_SESSION['id'];
         <div class="sidebar" id="sidebar">
             <div class="title"><p>eManagePro</p></div>
             <div class="pages">
-                <a class="option" href="profile.php">
+                <a class="option">
                     <i class="fa-solid fa-circle-user"></i>
                    <p>Profile</p>
                 </a>
@@ -52,7 +50,7 @@ $loggeduser = $_SESSION['id'];
                     <i class="fa-solid fa-newspaper"></i>
                     <p>Daily Report</p>
                 </a>
-                 <a class="option" href="#">
+                 <a class="option" href="inventory.php">
                     <i class="fa-solid fa-warehouse"></i>
                     <p>Inventory</p>
                 </a>
@@ -64,37 +62,35 @@ $loggeduser = $_SESSION['id'];
             </div>
         </div>
 
-        <div class="section-header">Inventory</div>
+        <div class="cover-img"><img src="../../assets/bg.jpg" alt=""></div>
 
-        <div class="inventory-content">
-            <div class="formContainer">
-                <div class="formTitle"><p>Insert Item</p></div>
-                <form method="post" id="insertForm" >
-                    <label for="item_name">Product Name:</label>
-                    <input type="text" name="item_name" id="item_name" required>
-                    <label for="price">Price:</label>
-                    <input type="number" name ="price" id="price" required>
-                    <label for="stock">Stock</label>
-                    <input type="number" name="stock" id="stock" required>
-                    <input type="submit" Value="Add Item" id="insert">
-
-                </form>
+        <div class="profile-content">
+            <div class="profile-info">
+             <img src="../../assets/profilepic.jpg">
+             <p id="fullname" class="name"></p>
             </div>
 
-             <div class="table-item">
-                <div class="table-title">
-                     <p id="title-table">Item Table</p>
+            <div class="more-info">
+                <div class="username">
+                      <p> Username: </p>
+                      <p id="username" class="user"></p>
                 </div>
-           <div id="table">
-   
-           </div>
-        </div>
+                   
+            </div>
+            <div class="more-info">
+                <div class="password">
+                     <p> Password: </p>
+                     <span class="pass" id="password"></span>
+                </div>
+                     <div class="editPass"> <i class="fa-solid fa-pen"></i></div>
+            </div>
+             
 
-        </div>
+           
         </div>
 
      
-<script src="../js/inventory.js"></script>
+<script src="../js/profile.js"></script>
 <script src="../js/dashboard.js"></script>
 
 </body>

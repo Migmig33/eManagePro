@@ -32,6 +32,10 @@ $loggeduser = $_SESSION['id'];
         <div class="sidebar" id="sidebar">
             <div class="title"><p>eManagePro</p></div>
             <div class="pages">
+                <a class="option" href="profile.php">
+                    <i class="fa-solid fa-circle-user"></i>
+                   <p>Profile</p>
+                </a>
                 <a class="option" href="dashboard.php">
                     <i class="fa-solid fa-chart-area"></i>
                    <p>DashBoard</p>

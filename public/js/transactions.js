@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let data = new FormData();
 
             data.append("transaction_id", id);
-            fetch('../../func/deletetransactionsss.php', {
+            fetch('../../func/deletetransaction.php', {
                 method: 'POST',
                 body: data
             }).then(response => response.json())
