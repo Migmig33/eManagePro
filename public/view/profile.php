@@ -6,6 +6,9 @@ if(!isset($_SESSION['id'])){
 }
 include'../../db/db_connect_emanagepro.php';
 $loggeduser = $_SESSION['id'];
+$pass = "SELECT password FROM users WHERE id = '$loggeduser'";
+$result = $conn->query($pass);
+$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -77,12 +80,15 @@ $loggeduser = $_SESSION['id'];
                 </div>
                    
             </div>
-            <div class="more-info">
+            <div class="more-info" id="pass">
                 <div class="password">
                      <p> Password: </p>
                      <span class="pass" id="password"></span>
+                     <input class="editInput" type="text" name="password" style="display: none;" value="<?php echo $row['password']?>" id="password">
                 </div>
-                     <div class="editPass"> <i class="fa-solid fa-pen"></i></div>
+                     <div class="editPass" style="cursor:pointer;"> <i class="fa-solid fa-pen" data-id="<?php echo $row['password']?>"></i></div>
+                     <div class="savePass" style="display: none; cursor:pointer;"> <i class="fa-solid fa-check" data-id="<?php echo $row['password']?>"></i></div>
+
             </div>
              
 

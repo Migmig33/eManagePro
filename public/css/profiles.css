@@ -151,7 +151,9 @@ body {
     display: flex;
     gap: 20px;
 }
-.pass{
+.pass{ 
+    display: flex;
+    align-items: center;
     justify-content: center;
     font-weight: 700;
     text-transform: uppercase;
