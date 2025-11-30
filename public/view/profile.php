@@ -6,7 +6,7 @@ if(!isset($_SESSION['id'])){
 }
 include'../../db/db_connect_emanagepro.php';
 $loggeduser = $_SESSION['id'];
-$pass = "SELECT password FROM users WHERE id = '$loggeduser'";
+$pass = "SELECT id, password FROM users WHERE id = '$loggeduser'";
 $result = $conn->query($pass);
 $row = $result->fetch_assoc();
 ?>
@@ -19,7 +19,7 @@ $row = $result->fetch_assoc();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/profiles.css">
+        <link rel="stylesheet" href="../css/profile.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -75,7 +75,7 @@ $row = $result->fetch_assoc();
 
             <div class="more-info">
                 <div class="username">
-                      <p> Username: </p>
+                      <p> Employee: </p>
                       <p id="username" class="user"></p>
                 </div>
                    
@@ -84,10 +84,10 @@ $row = $result->fetch_assoc();
                 <div class="password">
                      <p> Password: </p>
                      <span class="pass" id="password"></span>
-                     <input class="editInput" type="text" name="password" style="display: none;" value="<?php echo $row['password']?>" id="password">
+                     <input class="editInput" type="text" name="password" style="display: none;" value="<?php echo $row['password']?>" >
                 </div>
-                     <div class="editPass" style="cursor:pointer;"> <i class="fa-solid fa-pen" data-id="<?php echo $row['password']?>"></i></div>
-                     <div class="savePass" style="display: none; cursor:pointer;"> <i class="fa-solid fa-check" data-id="<?php echo $row['password']?>"></i></div>
+                     <div class="editPass" style="cursor:pointer;"> <i class="fa-solid fa-pen" data-id="<?php echo $row['id']?>"></i></div>
+                     <div class="savePass" style="display: none; cursor:pointer;"> <i class="fa-solid fa-check" data-id="<?php echo $row['id']?>"></i></div>
 
             </div>
              
@@ -96,7 +96,7 @@ $row = $result->fetch_assoc();
         </div>
 
      
-<script src="../js/profile.js"></script>
+<script src="../js/profiles.js"></script>
 <script src="../js/dashboard.js"></script>
 
 </body>

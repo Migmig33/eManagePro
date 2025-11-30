@@ -1,8 +1,8 @@
 <?php
-include'../../db/db_connect_emanagepro.php';
+include'../db/db_connect_emanagepro.php';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $id = intval($_POST['id'] ?? 0);
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $id = trim($_POST['id'] ?? '');
     $password = trim($_POST['password'] ?? '');
 }
 if($password == ''){
@@ -10,7 +10,7 @@ if($password == ''){
     exit;
 }
 $stmt = $conn->prepare("UPDATE users SET password = ? WHERE id = ?");
-$stmt->bind_param("ss", $id, $password);
+$stmt->bind_param("ss", $password, $id);
 if($stmt->execute() == TRUE){
     echo json_encode(['success' => true, 'message' => 'Password Successfully Updated.']);
     exit;
