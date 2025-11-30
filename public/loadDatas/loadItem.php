@@ -1,9 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])){
-    header("Location: login.php");
+    header("Location: ../view/index.html");
     exit;
-
 }
 include'../../db/db_connect_emanagepro.php';
 

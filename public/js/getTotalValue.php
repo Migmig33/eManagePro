@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: ../view/index.html");
+    exit;
+}
 include'../../db/db_connect_emanagepro.php';
 $sql_itemtvalue = "SELECT SUM(price * stock) AS total_value FROM inventory";
 $result_itemtvalue = $conn->query($sql_itemtvalue);

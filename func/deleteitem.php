@@ -1,7 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])){
-    header('Location: login.php');
+    header("Location: ../../view/index.php");
+    exit;
 }
 include '../db/db_connect_emanagepro.php';
 $item_id = intval($_POST['item_id'] ?? 0);

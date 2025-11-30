@@ -1,8 +1,9 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])){
-    header('Location: ../login.php');
-} 
+    header("Location: ../../view/index.php");
+    exit;
+}
 include'../db/db_connect_emanagepro.php';
 $transaction_id = intval(($_POST['transaction_id'])?? 0);
 $stmt = $conn->prepare("UPDATE transactions

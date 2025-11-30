@@ -1,5 +1,9 @@
 <?php
-session_start(); 
+session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: ../view/index.html");
+    exit;
+}
 include'../../db/db_connect_emanagepro.php';
 $stmt = $conn->prepare("SELECT o.operation_id, o.operation_name, o.description,
                                              CASE WHEN o.isactive = 0 THEN 'Completed'

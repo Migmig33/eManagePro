@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: ../view/index.html");
+    exit;
+}
 include'../../db/db_connect_emanagepro.php';
 $sql_operationstat = "SELECT isactive FROM operations";
 $result_operationstat = $conn->query($sql_operationstat);

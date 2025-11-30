@@ -1,7 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['id'])){
-    header('Location: login.php');
+    header("Location: ../../view/index.php");
+    exit;
 }
 include'../db/db_connect_emanagepro.php';
 $deleted_by = $_SESSION['id'] ?? 'Unknown';

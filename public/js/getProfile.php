@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: ../view/index.html");
+    exit;
+}
 include'../../db/db_connect_emanagepro.php';
 $loggeduser = $_SESSION['id'];
 $sql_username = "SELECT CONCAT(givenName, ' ', middleName, ' ', lastName) AS FullName, username, password FROM users WHERE id = '$loggeduser'";
