@@ -2,7 +2,7 @@
 //checks if the session id is running from the login page if not the system will go back to transaction.php // for securtiy issues
 session_start();
 if(!isset($_SESSION['id'])){
-    header("Location: ../../view/index.php");
+    header("Location: ../../view/index.html");
     exit;
 }
 // it will include the code of this path

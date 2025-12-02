@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if($username == '' || $password == ''){
         echo "<script>alert('Please fill all the credentials.');
-        window.location.href = '../login.php';
+        window.location.href = '../index.html';
         </script>";
         exit;
     }
@@ -29,14 +29,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             exit;
         } else{
             echo "<script>alert('INVALID USERNAME OR PASSWORD, TRY AGAIN');
-            window.location.href = '../login.php';
+            window.location.href = '../index.html';
             </script>";
             exit;
 
         }
     }else{
      echo "<script>alert('USER NOT FOUND');
-     window.location.href = '../login.php';
+     window.location.href = '../index.html';
      </script>";
      exit;
 } 

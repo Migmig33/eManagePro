@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['id'])){
-    header("Location: ../../view/index.php");
+    header("Location: ../../view/index.html");
     exit;
 }
 include '../db/db_connect_emanagepro.php';
