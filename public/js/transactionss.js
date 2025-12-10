@@ -3,7 +3,7 @@
 let showarchived = 0;
 // to load the table data from LoadTransaction.php //
 function loadArchivedTransac() {
-    fetch("../loadDatas/loadTransactions.php?is_archived=" + (showarchived ? 1 : 0))
+    fetch("../loadDatas/loadTransactionss.php?is_archived=" + (showarchived ? 1 : 0))
     .then(response => response.text())
     .then(data =>{
         document.getElementById("table").innerHTML = data;
@@ -44,12 +44,14 @@ document.addEventListener("DOMContentLoaded", function(){
             let name = row.querySelector("input[name='transaction_name']").value;
             let item = row.querySelector("input[name='item_id']").value;
             let qnty = row.querySelector("input[name='quantity']").value;
+            let customer = row.querySelector("input[name='customer_name']").value;
 
             let data = new FormData();
             data.append("transaction_id", id);
             data.append("transaction_name", name);
             data.append("item_id", item);
             data.append("quantity", qnty);
+            data.append("customer_name", customer)
 
             fetch("../../func/updatetransactions.php", {
                 method: 'POST',
@@ -131,12 +133,14 @@ document.addEventListener("DOMContentLoaded", function(){
         let name = document.getElementById("transaction_name").value;
         let item = document.getElementById("item_id").value;
         let qnty = document.getElementById("quantity").value;
+        let customer = document.getElementById("customer_name").value;
 
 
         let data = new FormData();
         data.append("transaction_name", name);
         data.append("item_id", item);
         data.append("quantity", qnty);
+        data.append("customer_name", customer);
 
         fetch("../../func/inserttransac.php", {
             method: 'POST',

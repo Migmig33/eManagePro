@@ -76,6 +76,8 @@ $loggeduser = $_SESSION['id'];
                     <input type="number" name="item_id" id="item_id" required>
                     <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" id="quantity" required>
+                    <label for="quantity">Customer Name:</label>
+                    <input type="text" name="customer_name" id="customer_name" required>
                     <input type="submit" Value="Add Transaction" id="insert">
 
                 </form>
@@ -84,7 +86,7 @@ $loggeduser = $_SESSION['id'];
              <div class="table-transaction" >
                 <div class="table-title">
                      <p id="title-table" class="title-table">Recent Transaction</p>
-                     <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff" id="toggle-View">View Archived</p>
+                     <p style="cursor: pointer; text-decoration: underline; color: #a59e9eff background-color: black" id="toggle-View">View Archived</p>
                 </div>
            <div id="table">
            // table //
@@ -96,7 +98,7 @@ $loggeduser = $_SESSION['id'];
 
      
 
-<script src="../js/transactions.js"></script>
+<script src="../js/transactionss.js"></script>
 <script src="../js/dashboard.js"></script>
 </body>
 </html>

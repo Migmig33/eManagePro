@@ -7,7 +7,7 @@ if(!isset($_SESSION['id'])){
 include "../../db/db_connect_emanagepro.php";
 
 $is_archived =  isset($_GET["is_archived"]) ? $_GET["is_archived"] : 1;
-$stmt = $conn->prepare("SELECT t.transaction_id, t.transaction_name, t.item_id, t.quantity, t.created_at, u.givenName
+$stmt = $conn->prepare("SELECT t.transaction_id, t.transaction_name, t.item_id, t.quantity, t.created_at, t.customer_name, u.givenName
                                FROM transactions as t
                                INNER JOIN users as u
                                ON t.transactioned_by = u.id
@@ -24,6 +24,7 @@ if ($result_transactions && $result_transactions->num_rows > 0){
               <th>Transaction By</th>
               <th>Item Id</th>
               <th>Quantity</th>
+              <th>Customer Name</th>
               <th>Created At</th>
               <th>Actions</th>
         </tr>";
@@ -52,6 +53,16 @@ if ($result_transactions && $result_transactions->num_rows > 0){
                  <span class='viewSpan'>".htmlspecialchars($row['quantity'])."</span>
                  <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='quantity'
                         value='".htmlspecialchars($row['quantity'])."'>
+
+
+                 </td>
+
+                <td>
+
+
+                 <span class='viewSpan'>".htmlspecialchars($row['customer_name'])."</span>
+                 <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='quantity'
+                        value='".htmlspecialchars($row['customer_name'])."'>
 
 
                  </td>
