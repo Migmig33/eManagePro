@@ -15,7 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $quantity = intval($_POST['quantity'] ??'');
     $item_id = intval($_POST['item_id'] ?? '');
     $is_archive = intval($_POST['is_archive'] ?? '');
-    }
+    $customer = trim($_POST['customer_name']?? '');
+
+
     $sql_itemcheck = $conn->prepare("SELECT * FROM inventory WHERE item_id = ?");
     $sql_itemcheck->bind_param("i", $item_id);
     $sql_itemcheck->execute();
@@ -40,8 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     $conn->begin_transaction();
     try{
-         $stmt = $conn->prepare("INSERT INTO transactions (transaction_name, item_id, quantity,  transactioned_by, is_archived) VALUES (?,?,?,?,0)");
-         $stmt -> bind_param("siis", $transaction_name, $item_id, $quantity, $transactioned_by);
+         $stmt = $conn->prepare("INSERT INTO transactions (transaction_name, item_id, quantity,  transactioned_by, customer_name, is_archived) VALUES (?,?,?,?,?,0)");
+         $stmt -> bind_param("siiss", $transaction_name, $item_id, $quantity, $transactioned_by, $customer);
          $stmt->execute();
 
          $stmt2 = $conn->prepare("UPDATE inventory SET stock = stock - ? WHERE item_id = ?");
@@ -57,7 +59,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo json_encode(['success' => false, 'message' => 'Failed to Add Transaction.']);
         exit;
     }
-   
+    }
+
     $stmt->close();
     $conn->close();
 ?>

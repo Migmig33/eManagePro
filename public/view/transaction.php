@@ -4,7 +4,11 @@ if(!isset($_SESSION['id'])){
     header("Location: ../../index.html");
     exit();
 }
+include'../../db/db_connect_emanagepro.php';
 $loggeduser = $_SESSION['id'];
+
+$sql = "SELECT item_id, item_name FROM inventory WHERE stock > 0";
+$result = $conn->query($sql);
 ?>
 
 <?php 
@@ -73,7 +77,15 @@ $loggeduser = $_SESSION['id'];
                     <label for="transaction_name">Transaction Name:</label>
                     <input type="text" name="transaction_name" id="transaction_name" required>
                     <label for="item_id">Item Id:</label>
-                    <input type="number" name="item_id" id="item_id" required>
+                    <select name="item_id" id="item_id" required>
+                        <option value="">Select Item</option>
+                        <?php while($row = $result->fetch_assoc()): ?>
+                        <option value="<?= $row['item_id']?>">
+                            <?= $row['item_id'] ?> - <?= $row['item_name'] ?>
+                        </option>
+                        <?php endwhile; ?>
+
+                    </select>
                     <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" id="quantity" required>
                     <label for="quantity">Customer Name:</label>
@@ -98,7 +110,7 @@ $loggeduser = $_SESSION['id'];
 
      
 
-<script src="../js/transactionss.js"></script>
+<script src="../js/transaction.js"></script>
 <script src="../js/dashboard.js"></script>
 </body>
 </html>

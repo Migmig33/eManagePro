@@ -61,9 +61,8 @@ if ($result_transactions && $result_transactions->num_rows > 0){
 
 
                  <span class='viewSpan'>".htmlspecialchars($row['customer_name'])."</span>
-                 <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='quantity'
+                 <input class='editInput' type='text' style='display: none; width: 50px; padding: 4px;' name='customer_name'
                         value='".htmlspecialchars($row['customer_name'])."'>
-
 
                  </td>
 

@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $transaction_name = trim($_POST['transaction_name'] ?? '');
     $item_id = intval($_POST['item_id'] ?? 0);
     $quantity = intval($_POST['quantity'] ?? 0);
+    $customer = trim($_POST['customer_name'] ?? '');
 }
 
 $stmt_old = $conn->prepare("SELECT item_id, quantity FROM transactions WHERE transaction_id = ?");
@@ -54,8 +55,8 @@ if($quantity > $stock){
 $conn->begin_transaction();
 try{
     // if the user input is valid it wil create an update query
-    $stmt = $conn->prepare("UPDATE transactions SET transaction_name = ?, item_id = ?, quantity = ? WHERE transaction_id = ?");
-    $stmt->bind_param("siii", $transaction_name, $item_id, $quantity, $transaction_id);
+    $stmt = $conn->prepare("UPDATE transactions SET transaction_name = ?, item_id = ?, quantity = ?, customer_name = ? WHERE transaction_id = ?");
+    $stmt->bind_param("siisi", $transaction_name, $item_id, $quantity, $customer, $transaction_id);
     $stmt->execute();
     
 
