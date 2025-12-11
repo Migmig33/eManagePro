@@ -1,3 +1,4 @@
+
 const fullName = document.getElementById("fullname");
 const userName = document.getElementById("username");
 const pass = document.getElementById("password");
@@ -7,7 +8,20 @@ function loadUserInfo(){
     .then(result =>{
         fullName.textContent = result.fullName;
         userName.textContent = result.userName;
-        pass.textContent = result.passWord;
+
+        let isShowed = true;
+        
+
+        const masked = '*'.repeat(result.passWord.length);
+        pass.textContent = masked;
+        document.querySelector(".showPass").addEventListener('click', function(){
+            if(isShowed){
+                pass.textContent = result.passWord;
+            }else{
+                pass.textContent = masked;
+            }
+            isShowed = !isShowed;
+        });
     })
     .catch(err => fullName.textContent = "Unable to Retrieve Personal Info", userName.textContent = "Unable to Retrieve Personal Info", pass.textContent = "Unable to Retrieve Personal Info");
 }

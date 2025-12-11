@@ -19,7 +19,7 @@ $row = $result->fetch_assoc();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="../css/profile.css">
+        <link rel="stylesheet" href="../css/profiles.css">
     <title>eManagePro</title>
 </head>
 <body>
@@ -84,10 +84,16 @@ $row = $result->fetch_assoc();
                 <div class="password">
                      <p> Password: </p>
                      <span class="pass" id="password"></span>
-                     <input class="editInput" type="text" name="password" style="display: none;" value="<?php echo $row['password']?>" >
+                     <input class="editInput" type="password" name="password" style="display: none;" value="<?php echo $row['password']?>">
                 </div>
+                <div class="btns">
+                      <div class="showPass" style="cursor: pointer;"><i class="fa-solid fa-eye"></i></div>
+
                      <div class="editPass" style="cursor:pointer;"> <i class="fa-solid fa-pen" data-id="<?php echo $row['id']?>"></i></div>
                      <div class="savePass" style="display: none; cursor:pointer;"> <i class="fa-solid fa-check" data-id="<?php echo $row['id']?>"></i></div>
+                    
+                </div>
+                   
 
             </div>
              
@@ -96,7 +102,7 @@ $row = $result->fetch_assoc();
         </div>
 
      
-<script src="../js/profiles.js"></script>
+<script src="../js/profile.js"></script>
 <script src="../js/dashboard.js"></script>
 
 </body>

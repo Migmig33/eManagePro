@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2025 at 03:08 AM
+-- Generation Time: Dec 11, 2025 at 04:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,7 +53,7 @@ INSERT INTO `inventory` (`item_id`, `item_name`, `price`, `stock`, `added_by`) V
 (40, '32GB Flash Drive', 280, 19, 'e378f552'),
 (41, 'Office Chair', 5200, 6, 'e378f552'),
 (42, 'Notebook A5', 50, 200, 'e378f552'),
-(43, 'Ballpoint Pen Pack', 40, 150, 'e378f552'),
+(43, 'Ballpoint Pen Pack', 40, 148, 'e378f552'),
 (44, 'Graphic Tablet', 3500, 5, 'e378f552'),
 (45, 'Smartwatch', 2500, 9, 'e378f552'),
 (46, 'Wireless Router', 1800, 2, 'e378f552'),
@@ -116,7 +116,21 @@ INSERT INTO `logs` (`log_id`, `logs`, `user_id`, `date_generated`) VALUES
 (113, 'Miguel  Inserted a Transaction Record named Bought - USB created at 2025-12-11 10:07:02', '7d6fb9ea', '2025-12-11 10:07:02'),
 (114, 'Miguel  Deleted Transaction ID 96 at 2025-12-11 10:07:17', '7d6fb9ea', '2025-12-11 10:07:17'),
 (115, 'Miguel  Deleted Transaction ID 95 at 2025-12-11 10:07:30', '7d6fb9ea', '2025-12-11 10:07:30'),
-(116, 'Miguel  Deleted Transaction ID 94 at 2025-12-11 10:07:36', '7d6fb9ea', '2025-12-11 10:07:36');
+(116, 'Miguel  Deleted Transaction ID 94 at 2025-12-11 10:07:36', '7d6fb9ea', '2025-12-11 10:07:36'),
+(117, NULL, NULL, '2025-12-11 10:47:43'),
+(118, NULL, NULL, '2025-12-11 10:47:50'),
+(119, NULL, NULL, '2025-12-11 10:51:49'),
+(120, NULL, NULL, '2025-12-11 10:51:49'),
+(121, NULL, NULL, '2025-12-11 10:53:53'),
+(122, 'Miguel  Updated a Operation ID 17 at 2025-12-11 10:55:03', '7d6fb9ea', '2025-12-11 10:55:03'),
+(123, NULL, NULL, '2025-12-11 10:55:15'),
+(124, 'Miguel  Insert a Operation Named feff created at 2025-12-11 10:55:44', '7d6fb9ea', '2025-12-11 10:55:44'),
+(125, NULL, NULL, '2025-12-11 10:56:15'),
+(126, 'Miguel  Updated a Operation ID 20 at 2025-12-11 11:00:05', '7d6fb9ea', '2025-12-11 11:00:05'),
+(127, 'Miguel  Updated a Operation ID 19 at 2025-12-11 11:00:10', '7d6fb9ea', '2025-12-11 11:00:10'),
+(128, NULL, NULL, '2025-12-11 11:00:53'),
+(129, NULL, NULL, '2025-12-11 11:00:53'),
+(130, 'Sofia Inserted a Transaction Record named BENTA NG SHABUddd created at 2025-12-11 11:14:18', 'e38d775b', '2025-12-11 11:14:18');
 
 -- --------------------------------------------------------
 
@@ -139,10 +153,11 @@ CREATE TABLE `operations` (
 --
 
 INSERT INTO `operations` (`operation_id`, `operation_name`, `isactive`, `operated_by`, `description`, `created_at`, `expected_finish`) VALUES
-(16, 'Cut Material', b'1', '7d6fb9ea', 'Cut raw materials (wood, metal, composite, etc.) according to project measurements and specification', '2025-12-11 09:12:05', '2025-12-11 09:13:00'),
-(17, 'Quality Inspection', b'1', '7d6fb9ea', 'Inspect completed work for accuracy, finish quality, and compliance with project specifications.', '2025-12-11 09:12:52', '2025-12-18 09:13:00'),
-(18, 'Packaging', b'1', '7d6fb9ea', 'Securely package finished products for delivery, ensuring protection during transport.', '2025-12-11 09:13:17', '2025-12-11 09:14:00'),
-(19, 'Painting / Coating', b'1', '7d6fb9ea', 'Apply paint, stain, laminate, or protective coating to finished components.', '2025-12-11 09:14:20', '2025-12-11 09:14:00');
+(16, 'Cut Material', b'0', '7d6fb9ea', 'Cut raw materials (wood, metal, composite, etc.) according to project measurements and specification', '2025-12-11 09:12:05', '2025-12-11 09:13:00'),
+(17, 'Quality Inspection', b'0', '7d6fb9ea', 'Inspect completed work for accuracy, finish quality, and compliance with project specifications.', '2025-12-11 09:12:52', '2025-12-11 09:12:00'),
+(18, 'Packaging', b'0', '7d6fb9ea', 'Securely package finished products for delivery, ensuring protection during transport.', '2025-12-11 09:13:17', '2025-12-11 09:14:00'),
+(19, 'Painting / Coating', b'1', '7d6fb9ea', 'Apply paint, stain, laminate, or protective coating to finished components.', '2025-12-11 09:14:20', '2025-12-12 09:14:00'),
+(20, 'feff', b'1', '7d6fb9ea', 'oplan tokhang', '2025-12-11 10:55:44', '2025-12-12 10:56:00');
 
 --
 -- Triggers `operations`
@@ -153,7 +168,7 @@ INSERT INTO logs(logs, user_id, date_generated)
 VALUES(
     CONCAT(
         (SELECT givenName FROM users WHERE id = @currentuser_id),
-        ' Delete Operation ID ',
+        ' Deleted Operation ID ',
         OLD.operation_id,
         ' at ',
         NOW()
@@ -170,7 +185,7 @@ INSERT INTO logs(logs, user_id, date_generated)
 VALUES(
     CONCAT(
         (SELECT givenName FROM users WHERE id = NEW.operated_by),
-        ' Insert a Operation Named ',
+        ' Insert Operation Name ',
         (SELECT operation_name FROM operations WHERE operation_id = NEW.operation_id),
         ' created at ',
         NEW.created_at
@@ -187,7 +202,7 @@ INSERT INTO logs(logs, user_id, date_generated)
 VALUES(
     CONCAT(
      (SELECT givenName FROM users WHERE id = @currentuser_id), 
-     ' Updated a Operation ID ', 
+     ' Updated Operation ID ', 
      (SELECT operation_id FROM operations WHERE operation_id = OLD.operation_id),
      ' at ',
      NOW() 
@@ -217,6 +232,13 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `transaction_name`, `customer_name`, `transactioned_by`, `quantity`, `item_id`, `is_archived`, `created_at`) VALUES
+(97, 'BENTA NG SHABUddd', '1', 'e38d775b', 2, 43, b'0', '2025-12-11 11:14:18');
+
+--
 -- Triggers `transactions`
 --
 DELIMITER $$
@@ -242,7 +264,7 @@ INSERT INTO logs(logs, user_id, date_generated)
 VALUES(
     CONCAT(
         (SELECT givenName FROM users WHERE id = NEW.transactioned_by),
-        ' Inserted a Transaction Record named ',
+        ' Inserted Transaction Record named ',
         (SELECT transaction_name FROM transactions WHERE transaction_id = NEW.transaction_id),
         ' created at ',
         NEW.created_at
@@ -339,19 +361,19 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `operations`
 --
 ALTER TABLE `operations`
-  MODIFY `operation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `operation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- Constraints for dumped tables
@@ -389,12 +411,12 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` EVENT `operationend` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-12-11 09:39:15' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE operations
 SET isactive = 0
 WHERE expected_finish <= NOW()
-AND iscactive = 1$$
+AND isactive = 1$$
 
 CREATE DEFINER=`root`@`localhost` EVENT `operationstart` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-12-11 09:42:53' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE operations
 SET isactive = 1
 WHERE expected_finish > NOW()
-AND iscactive = 0$$
+AND isactive = 0$$
 
 DELIMITER ;
 COMMIT;
