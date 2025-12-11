@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2025 at 04:20 AM
+-- Generation Time: Dec 11, 2025 at 06:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,7 +52,7 @@ INSERT INTO `inventory` (`item_id`, `item_name`, `price`, `stock`, `added_by`) V
 (39, 'Portable SSD 1TB', 4200, 8, 'e378f552'),
 (40, '32GB Flash Drive', 280, 19, 'e378f552'),
 (41, 'Office Chair', 5200, 6, 'e378f552'),
-(42, 'Notebook A5', 50, 200, 'e378f552'),
+(42, 'Notebook A5', 50, 198, 'e378f552'),
 (43, 'Ballpoint Pen Pack', 40, 148, 'e378f552'),
 (44, 'Graphic Tablet', 3500, 5, 'e378f552'),
 (45, 'Smartwatch', 2500, 9, 'e378f552'),
@@ -130,7 +130,11 @@ INSERT INTO `logs` (`log_id`, `logs`, `user_id`, `date_generated`) VALUES
 (127, 'Miguel  Updated a Operation ID 19 at 2025-12-11 11:00:10', '7d6fb9ea', '2025-12-11 11:00:10'),
 (128, NULL, NULL, '2025-12-11 11:00:53'),
 (129, NULL, NULL, '2025-12-11 11:00:53'),
-(130, 'Sofia Inserted a Transaction Record named BENTA NG SHABUddd created at 2025-12-11 11:14:18', 'e38d775b', '2025-12-11 11:14:18');
+(130, 'Sofia Inserted a Transaction Record named BENTA NG SHABUddd created at 2025-12-11 11:14:18', 'e38d775b', '2025-12-11 11:14:18'),
+(131, 'Miguel  Updated Operation ID 20 at 2025-12-11 13:15:57', '7d6fb9ea', '2025-12-11 13:15:57'),
+(132, 'Miguel  Deleted Transaction ID 97 at 2025-12-11 13:16:39', '7d6fb9ea', '2025-12-11 13:16:39'),
+(133, 'Miguel  Inserted Transaction Record named BENTA NG SHABUddd created at 2025-12-11 13:26:25', '7d6fb9ea', '2025-12-11 13:26:25'),
+(134, NULL, NULL, '2025-12-11 13:27:15');
 
 -- --------------------------------------------------------
 
@@ -157,7 +161,7 @@ INSERT INTO `operations` (`operation_id`, `operation_name`, `isactive`, `operate
 (17, 'Quality Inspection', b'0', '7d6fb9ea', 'Inspect completed work for accuracy, finish quality, and compliance with project specifications.', '2025-12-11 09:12:52', '2025-12-11 09:12:00'),
 (18, 'Packaging', b'0', '7d6fb9ea', 'Securely package finished products for delivery, ensuring protection during transport.', '2025-12-11 09:13:17', '2025-12-11 09:14:00'),
 (19, 'Painting / Coating', b'1', '7d6fb9ea', 'Apply paint, stain, laminate, or protective coating to finished components.', '2025-12-11 09:14:20', '2025-12-12 09:14:00'),
-(20, 'feff', b'1', '7d6fb9ea', 'oplan tokhang', '2025-12-11 10:55:44', '2025-12-12 10:56:00');
+(20, 'feff', b'0', '7d6fb9ea', 'oplan tokhang', '2025-12-11 10:55:44', '2025-12-11 10:57:00');
 
 --
 -- Triggers `operations`
@@ -236,7 +240,7 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`transaction_id`, `transaction_name`, `customer_name`, `transactioned_by`, `quantity`, `item_id`, `is_archived`, `created_at`) VALUES
-(97, 'BENTA NG SHABUddd', '1', 'e38d775b', 2, 43, b'0', '2025-12-11 11:14:18');
+(98, 'BENTA NG SHABUddd', '1', '7d6fb9ea', 2, 42, b'0', '2025-12-11 13:26:25');
 
 --
 -- Triggers `transactions`
@@ -361,7 +365,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `operations`
@@ -373,7 +377,7 @@ ALTER TABLE `operations`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- Constraints for dumped tables
