@@ -25,9 +25,15 @@ It provides a real-time inventory monitoring, transaction ad operation recording
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 ### Server
-![Apache](https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white)
+![Apache](https://img.shields.io/badge/Apache-D22128?style=for-thehttps://github.com/Migmig33/eManagePro/pulse-badge&logo=apache&logoColor=white)
 ![XAMPP](https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white)
-  
+
+# Live Demo
+1. Open VPN(e.g Thunder VPN)
+2. Connect to Different Server (e.g America, Japan)
+3. Open Browser
+4. Type `emanagepro.rf.gd` in Address Bar
+
 # Requirements
 -PHP >= 7.2
 -MySQL >= 5.7
@@ -104,17 +110,23 @@ eManagePro/
 <img width="1852" height="883" alt="image" src="https://github.com/user-attachments/assets/4cb1ba75-6899-4be3-832a-7a9f352e2a18" />
 
 
-
 ## 🐛 Common Issues & Solutions
 
-**Problem:** Cannot connect to database
+**Problem:** Cannot connect to database(Installation)
 ```
 Solution: Check your database credentials in /db/connection.php
 ```
+**Problem:** No Update/Insert/Delete log in Report Page(Live Demo)
+```
+Explanation: It's only free hosting there is no 'trigger' feature in phpmyadmin
+Solution: Use 'INSTALLATION METHOD' for full functionality and feature
+```
+
 
 ## 📞 Contact
 
 **Developer:** Miguel Andrei C Tan
+**Email:** migztan66@gmail.com
 
 **Published** December 2025
 
